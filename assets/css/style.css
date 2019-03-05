@@ -1,0 +1,57 @@
+
+#submitLogin{
+    background-color:#D00000;
+    border: 0;
+}
+
+.loginRow{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../images/Food.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#rememberMe{
+    color: #fff;
+    font-weight: bold;
+}
+.noMarginRow{
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+#forgetLink{
+    color: #fff;
+    
+}
+/* __________________________________________________ */
+
+div.scrolling-wrapper {
+    overflow: auto;
+    white-space: nowrap;
+    width: 45vw;
+  }
+  
+  div.scrolling-wrapper div {
+    display: inline-block;
+    color: #D00000;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  div.scrolling-wrapper div:hover {
+    background-color: #777;
+    color: #fff;
+  }
+
+
+
+
+
+
+
+
+
+
+
