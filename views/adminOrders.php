@@ -1,6 +1,6 @@
-<?php include('./components/header.php') ?>
+<?php include('../../views/components/header.php') ?>
+<?php include('../../views/components/navBar.php') ?>
 
-<?php include('./components/navBar.php') ?>
 
 <div class="noMarginRow row">
     <div class="col-2 ml-5 mt-2">

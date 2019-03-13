@@ -37,5 +37,16 @@ class Order {
             return $result;
         }
     }
-//-------------------- Aml --------------------------- 
+//-------------------- Aml ---------------------------
+//----------------fatma-----------
+//fatema
+
+    public function getAdminorders() {
+        $productOrders = array();
+        $orders =$this->db->select("orders" ,'orders.date ,total_price ,rooms.number as roomNo,users.name as user_name,users.ext as                  ext','orders.user_id=users.id' and 'orders.room_id=rooms.id',null ,null ,"users,rooms");
+        $result['orders'] = $orders['resultset'];
+       var_dump($result['orders']);
+
+                                      } 
+
 }
