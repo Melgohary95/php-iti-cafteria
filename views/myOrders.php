@@ -1,6 +1,6 @@
-<?php include('./components/header.php') ?>
+<?php include('../../views/components/header.php') ?>
 
-<?php include('./components/navBar.php') ?>
+<?php include('../../views/components/navBar.php') ?>
 
 <div class="container">
 
@@ -73,7 +73,7 @@
         </td>
         <td>Out for delivery</td>
         <td>20 EGP</td>
-        <td>1</td>
+        <td></td>
       </tr>
       <tr>
         <td>
@@ -92,7 +92,7 @@
         </td>
         <td>Done</td>
         <td>29 EGP</td>
-        <td>1</td>
+        <td></td>
       </tr>
       <tr>
         <td colspan="4">
@@ -130,4 +130,4 @@
 </nav>
 <!-- end pagination -->
 
-<?php include('./components/footer.php') ?>
+<?php include('../../views/components/footer.php') ?>
