@@ -27,4 +27,15 @@ class Order {
         ");
         return $myOrders;
     }
+
+//-------------------- Aml ---------------------------
+    public function getOrdersByDate(){
+        if(isset($_POST['search'])){
+            $startDate = $_POST['startDate'];
+            $endDate = $_POST['endDate'];
+            $result = $this->db->select(table name, colm name, );
+            return $result;
+        }
+    }
+//-------------------- Aml --------------------------- 
 }
