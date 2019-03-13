@@ -1,16 +1,16 @@
-<?php include('../../views/components/header.php') ?>
+<?php include('./components/header.php') ?>
 
 <div class="row main-header">
     <!-- Header Navbar: style can be found in header.less -->
     <div class="col-md-4 navbar" >
         <ul class="nav tab-bar-icons">
             <li>
-                <a href="../../views/home.php">
+                <a href="/phpProject/home.php">
                     <span class="menu-text">Home</span>
                 </a>
             </li> 
             <li class="flat-box waves-effect waves-block">
-                <a href="./myOrders.php">
+                <a href="/phpProject/myOrders.php">
                     <span class="menu-text"> My Orders </span>
                 </a>
             </li>
@@ -171,4 +171,4 @@
 </nav>
 <!-- end pagination -->
 
-<?php include('../../views/components/footer.php') ?>
+<?php include('./components/footer.php') ?>
