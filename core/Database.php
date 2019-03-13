@@ -34,14 +34,14 @@ class Database {
     }
 
     public function open_connection() {
-$this->connection = mysqli_connect("localhost", "root", "") or die("Connection failed: " . mysqli_connect_error())or die("Connection failed: " . mysqli_connect_error());
+        $this->connection = mysqli_connect("localhost", "root", "felfel") or die("Connection failed: " . mysqli_connect_error())or die("Connection failed: " . mysqli_connect_error());
        
 //                $this->connection = mysqli_connect(Config::DB_HOST, Config::DB_USERNAME, Config::DB_PASSWORD) or die("Connection failed: " . mysqli_connect_error());
 //        var_dump($this->connection);
             //die :print message 
             //mysqli_connect_error():returns the error description from the last connection error if there is no error return null
 //            or die('Could not connect: ' . mysqli_error($this->connection));
-            $this->select_database();
+        $this->select_database();
                 
             
           
@@ -58,7 +58,7 @@ $this->connection = mysqli_connect("localhost", "root", "") or die("Connection f
     public function select_database() {
         //mysqli_select_db:selects database name
       
-         mysqli_select_db($this->connection, "phpCafeteria") or die("database selection failed :" . mysqli_error($this->connection));
+         mysqli_select_db($this->connection, "cafteria") or die("database selection failed :" . mysqli_error($this->connection));
 //        mysqli_select_db($this->connection, Config::DB_NAME) or die("database selection failed :" . mysqli_error($this->connection));
         //specifies the default character set to be used when sending data from and to the database server.
         mysqli_set_charset($this->connection, "utf8") or die("characters can not be set");
