@@ -12,7 +12,7 @@
 					</span>
 				</div>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 
   <div class="form-group">
     <label for="productName">Product</label>
@@ -54,17 +54,18 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Add new category</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              
+            <label for="newCategory">Category Name</label>
+            <input type="text" class="form-control-file" id="newCategory" name="newCategory">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-primary" onclick="sendReq()" data-dismiss="modal">Save Category</button>
             </div>
           </div>
         </div>
@@ -79,7 +80,7 @@
     <input type="file" class="form-control-file" id="productImage" name="productImage" required>
   </div>
 	<div class="mx-auto text-center">
-	<button type="submit" class="btn btn-primary">Save</button>
+	<button type="submit" class="btn btn-primary" name="submit">Save</button>
   <button type="submit" class="btn btn-light">Reset</button>
 	</div>
 </form>
@@ -87,5 +88,7 @@
 		</div>
 	</div>
 
-  <?php include('../../views/components/footer.php') ?>
+
+
+<?php include('../../views/components/footer.php') ?>
 

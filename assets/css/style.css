@@ -969,3 +969,47 @@ div.scrolling-wrapper {
   div.scrolling-wrapper div:hover {
     background-color: #777;
     color: #fff;
+  }
+
+  .productsTable{
+    margin-top: 20px;
+  }
+
+  #ProductsTable{
+    margin-top: 2px !important;
+    height: 30px !important;
+  }
+
+  .addProBtn{
+    float: right;
+    margin-bottom: 1%;
+  }
+
+  .editField{
+    display: inline-block;
+    margin: 0 20px;
+}
+#edit{
+    margin-top: 30px ;
+    margin-bottom: 10px ;
+}
+.btn{
+    margin-left: 30%;
+}
+
+.editProduct{
+  width: 80vw;
+}
+
+#editImage{
+  border: 0;
+  padding-left: 0;
+}
+
+#submitEditBtn{
+  margin-left: 0;
+}
+
+#edit{
+  display: none;
+}
