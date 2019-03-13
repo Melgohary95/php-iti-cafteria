@@ -48,5 +48,29 @@ class Order {
        var_dump($result['orders']);
 
                                       } 
+    
+    /********************** nourhan ****************************/
+                                      public function getAllProducts() {
+        $productCategories = array();
+        $categories = $this->db->select("categories");
+        $result['users']= $this->db->select("users" ,"*","role_id=2")['resultset'];
+        
+        $result['categories'] = $categories['resultset'];
+        foreach ($categories['resultset'] as $category) {
+            $categoryId = $category['id'];
+            $productCategories[$categoryId]= $this->db->select("products", '*', "category_id=$categoryId", "`products`.`id`DESC")['resultset'];
+        }
+        $result['productCategories'] = $productCategories;
+        
+//        var_dump($result);
+        return $result;
+    }
+    public function getProductDetails($id)
+    {
+        $product =$this->db->selectById("products", '*', "id=$id");
+        $result = $product['resultset'];
+        return $result;
+    }
+    /************************ nourhan *************************/
 
 }
