@@ -12,6 +12,8 @@
     <label class="form-check-label" for="exampleCheck1" id="rememberMe">Remember me</label>
   </div>
   <button type="submit" name="submit" id="submitLogin" class="btn btn-primary">Submit</button>
+
+  <button type="submit" name="forget" id="forgetLink" class="btn btn-primary">Forget Password</button>
   <br>
   <a href="#" id="forgetLink">Forget Password</a>
 </form>

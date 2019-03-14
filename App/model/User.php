@@ -79,6 +79,7 @@ class User {
                 }
              else if($count_row == 1 && strcmp($result[0]['role_id'],"1")==0){
                 $_SESSION['login'] = true; 
+                $_SESSION['user']=$result[0];
                 $_SESSION['uid'] = $result[0]['id'];
                 header("Location: ../../views/admin.php");
               
@@ -86,6 +87,7 @@ class User {
                 
             else{
                 //header("Location: index.php");
+                
             }
             
     
@@ -96,6 +98,7 @@ class User {
             $_SESSION['login'] = FALSE;
             unset($_SESSION);
             session_destroy();
+            header("Location: ../../views/components/loginForm.php");
             }
 
 
