@@ -22,13 +22,13 @@ class Order {
         $this->db = new Database();
     }
     
-    public function getOrder($fDate = null, $lDate = null){
+    public function getOrders($fDate = null, $lDate = null){
         $myOrders = $this->db->select('orders','*',"user_id = 2;");
     }
-    public function getOrders($fDate, $lDate){
-        $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
-        return $myOrders;
-    }
+    // public function getOrders($fDate, $lDate){
+    //     $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
+    //     return $myOrders;
+    // }
 
 //-------------------- Aml ---------------------------
 //-------------------- Aml ---------------------------
