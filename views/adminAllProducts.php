@@ -73,11 +73,10 @@
           </tr>
         </thead>
         <tbody>
-        <?php if(count($products)>2){
-          array_splice($products,0,2);
-          if(sizeof($products)>0)
+        <?php 
+          if(sizeof($pageProducts)>0)
           {
-        foreach($products['resultset'] as $key =>$product)
+        foreach($pageProducts as $key =>$product)
         { ?>
           <tr>
             <td><?php echo $product['name'] ?></td>
@@ -97,11 +96,36 @@
             </td>
           </tr>
           
-        <?php } }} ?>
+        <?php  }} ?>
         </tbody>
       </table>
 
+          <ul id="paggination">
+            
+          <?php 
+          if($pageNum>2){
+            echo '<li><a href="?page=1"><<</a></li>';
+          for($i=2;$i<$pageNum;$i++)
+          {
+          ?>
+            <li><a href="?page=<?php echo $i ?>" target="_self" rel="noopener noreferrer"><?php echo $i ?></a></li>
+            <?php } 
+            echo '<li><a href=?page='.$pageNum.">>></a></li>";
+          }
 
+          if($pageNum == 2){
+            echo '<li><a href="?page=1">1</a></li>';
+          for($i=2;$i<$pageNum;$i++)
+          {
+          ?>
+            <li><a href="?page=<?php echo $i ?>" target="_self" rel="noopener noreferrer"><?php echo $i ?></a></li>
+            <?php } 
+            echo '<li><a href=?page='.$pageNum.">>></a></li>";
+          }
+
+
+            ?>
+          </ul>
     </div>
   </div>
 

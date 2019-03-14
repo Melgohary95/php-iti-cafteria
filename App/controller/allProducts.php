@@ -8,7 +8,17 @@ require '../model/product.php';
 $p = new Product();
 $products = $p->db->select("products");
 
-
+if(isset($_GET['page']))
+{
+  $pageno = $_GET['page'];
+}
+else{
+  $pageno = 1;
+}
+$no_of_records_per_page = 3;
+$offset = ($pageno-1) * $no_of_records_per_page;
+$pageNum=ceil(count($products['resultset'])/$no_of_records_per_page);
+$pageProducts = array_slice($products['resultset'],$offset,$no_of_records_per_page);
 
 $inputs = array();
 if(count($_POST) > 0)

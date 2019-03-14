@@ -52,7 +52,7 @@ let displayEdit=(id)=>{
           
         } else {
           //add image name length too
-          if(productName.length > 0 || productPrice.length > 0 || productStatus.length > 0 )
+          if(productName.length > 0 || productPrice.length > 0 )
           {
             productName=productInfo[1];
           }else{
