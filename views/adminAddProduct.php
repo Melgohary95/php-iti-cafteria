@@ -81,7 +81,7 @@
   </div>
 	<div class="mx-auto text-center">
 	<button type="submit" class="btn btn-primary" name="submit">Save</button>
-  <button type="submit" class="btn btn-light">Reset</button>
+  <button type="reset" class="btn btn-light">Reset</button>
 	</div>
 </form>
 			</div>

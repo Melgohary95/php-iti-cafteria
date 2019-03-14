@@ -8,29 +8,7 @@ require '../model/product.php';
 $p = new Product();
 
 
-$inputs = array();
-if(count($_POST) > 0)
-{
-  if (!empty($_POST["productName"])) {
-      $name= trim($_POST['productName']);
-      $inputs['name'] = $_POST['productName'];
-      $inputs['availability'] = 1;
-      
-  }
-  if (!empty($_POST["productPrice"])) {
-    $price= trim($_POST['productPrice']);
-    $inputs['price'] = $price;
-  }
-  if (!empty($_POST["productCategory"])) {
-    $cat= trim($_POST['productCategory']);
-    $inputs['category_id'] = $cat;
-  }
-  if (!empty($_FILES["productImage"])) {
-    $img= trim($_FILES["productImage"]["name"]);
-    $inputs['image'] = "../../assets/images/".$img;
-  }
-  $p->db->insert("products",$inputs);
-}
+
 
 
 
@@ -79,6 +57,32 @@ if ($uploadOk == 0) {
 }
 }
 
+$inputs = array();
+if(count($_POST) > 0)
+{
+  if (!empty($_POST["productName"])) {
+      $name= trim($_POST['productName']);
+      $inputs['name'] = $_POST['productName'];
+      $inputs['availability'] = 1;
+      
+  }
+  if (!empty($_POST["productPrice"])) {
+    $price= trim($_POST['productPrice']);
+    $inputs['price'] = $price;
+  }
+  if (!empty($_POST["productCategory"])) {
+    $cat= trim($_POST['productCategory']);
+    $inputs['category_id'] = $cat;
+  }
+  if (!empty($_FILES["productImage"])) {
+    $img= trim($_FILES["productImage"]["name"]);
+    $inputs['image'] = "../../assets/images/".$img;
+  }
+  if ($uploadOk == 1){
+    $p->db->insert("products",$inputs);
+  }
+  
+}
 ?>
 
 <?php include('../../views/adminAddProduct.php') ?>
