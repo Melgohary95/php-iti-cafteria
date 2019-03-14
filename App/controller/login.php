@@ -24,5 +24,8 @@ $userVar=array();
         $userModel->login( $userVar['email'], $userVar['password']);
         
     }
+    else if(isset($_POST['forget'])){
+        header("Location: ./forgetPassword.php");
+    }
 
 include ("../../views/components/loginForm.php");

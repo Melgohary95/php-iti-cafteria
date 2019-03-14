@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-<?php include('./components/header.php') ?>
-<?php include('./components/navBar.php') ?>
-=======
-
 <?php include('../../views/components/header.php') ?>
 <?php include('../../views/components/navBar.php') ?>
->>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
 
 <div class="limiter">
     <div class="container-login100">

@@ -68,13 +68,15 @@ class User {
             $user= $this->db->select("users" ,"*","email='$email' and password='$password' ;");
             $result = $user['resultset'];
             $count_row = count($result);
-            //var_dump(strcmp($result[0]['role_id'],"2")==0);
+            //var_dump($result);
+            //var_dump($result['role_id']);
             //var_dump($count_row);
             if ($count_row == 1 && strcmp($result[0]['role_id'],"2")==0 ) {
                 var_dump($result[0]['role_id']);
                     $_SESSION['login'] = true; 
+                    $_SESSION['user']=$result[0];
                     $_SESSION['uid'] = $result[0]['id'];
-                    header("Location: ../../views/home.php");
+                   header("Location: ../../views/home.php");
                   
                 }
              else if($count_row == 1 && strcmp($result[0]['role_id'],"1")==0){
@@ -86,7 +88,7 @@ class User {
              }   
                 
             else{
-                //header("Location: index.php");
+                header("Location: index.php");
                 
             }
             
