@@ -22,9 +22,8 @@ class Order {
         $this->db = new Database();
     }
     
-    public function getOrders($fDate, $lDate){
-        $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;
-        ");
+    public function getOrders($fDate = null, $lDate = null){
+        $myOrders = $this->db->select('orders','*',"user_id = 2;");
         return $myOrders;
     }
 

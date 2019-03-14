@@ -6,7 +6,7 @@ ini_set('display_startup_errors', TRUE);
 require '../model/Order.php';
 
 $order = new Order();
-var_dump($orders = $order->db->select("orders"));
+$orders = $order->getOrders();
 
 ?>
 <?php include('../../views/myOrders.php') ?>

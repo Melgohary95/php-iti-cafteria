@@ -233,5 +233,26 @@ class Database {
         return mysqli_escape_string($this->connection, $string);
         
     }
+    // amal 
+    public function selectPaginate($table)
+    {
+        $query = "select * from $table";
+        // Make query to database
+        $result = $this->query($query);
+        if ($result) {
+
+            $this->result_array['result'] = true;
+
+            $this->result_array['number_of_rows'] = mysqli_affected_rows($this->connection);
+
+            $this->result_array['inserted_id'] = mysqli_insert_id($this->connection);
+        } else {
+            $this->result_array['result'] = false;
+            $this->result_array['error_no'] = mysqli_errno($this->connection);
+            $this->result_array['error_message'] = mysqli_error($this->connection);
+        }
+//        $this->close_connection();
+        return $this->result_array;
+    }
 
 }
