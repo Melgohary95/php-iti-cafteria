@@ -54,8 +54,8 @@ class Database {
     public function select_database() {
 //        echo 'hhh';
         //mysqli_select_db:selects database name
-
-        mysqli_select_db($this->connection, "cafteria") or die("database selection failed :" . mysqli_error($this->connection));
+      
+         mysqli_select_db($this->connection, "php-project") or die("database selection failed :" . mysqli_error($this->connection));
 //        mysqli_select_db($this->connection, Config::DB_NAME) or die("database selection failed :" . mysqli_error($this->connection));
         //specifies the default character set to be used when sending data from and to the database server.
         mysqli_set_charset($this->connection, "utf8") or die("characters can not be set");

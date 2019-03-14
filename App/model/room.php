@@ -12,6 +12,15 @@
  * @author lenovo
  */
 
-class Users {
+require '../../core/Database.php'; 
+
+class Room {
     //put your code here
+    public $db;
+    
+    public function __construct() {
+        $this->db = new Database();
+    }
+    
+   
 }
