@@ -1,6 +1,29 @@
+<<<<<<< HEAD
+<?php include('./components/header.php') ?>
+
+<<<<<<< HEAD
+<div class="row main-header">
+    <!-- Header Navbar: style can be found in header.less -->
+    <div class="col-md-4 navbar" >
+        <ul class="nav tab-bar-icons">
+            <li>
+                <a href="/phpProject/home.php">
+                    <span class="menu-text">Home</span>
+                </a>
+            </li> 
+            <li class="flat-box waves-effect waves-block">
+                <a href="/phpProject/myOrders.php">
+                    <span class="menu-text"> My Orders </span>
+                </a>
+            </li>
+=======
+<?php include('./components/navBar.php') ?>
+>>>>>>> d785a4235713261cbb31de2535449c8844b5a5da
+=======
 <?php include('../../views/components/header.php') ?>
 
 <?php include('../../views/components/navBar.php') ?>
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
 
 <div class="container">
 
@@ -19,8 +42,12 @@
     </div>
 
     <div class="col">
+<<<<<<< HEAD
+      <input type="submit" name="search" value="Search Orders by date">
+=======
       
       <button type="submit" onclick="getMyOrders()">Search Orders by date</button>
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
     </div>
     
   </div>
@@ -37,23 +64,84 @@
         <td>Amount</td>
         <td>Action</td>
       </tr>
+<<<<<<< HEAD
+      <tr>
+=======
       <?php foreach ($orders["resultset"] as $value) {?>
       <?php $total = $total + $value["total_price"];?>
         <tr>
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
         <td>
           <!-- first section  -->
             <div class="ac">
               <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
+<<<<<<< HEAD
+              <label class="ac-label" for="ac-1">Amal Moustafa</label>
+
+              <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
+                  <div class="ac-sub">
+                    <label for="ac-1">order date 1 </label>
+=======
               <label id ="firstRow" class="ac-label" for="ac-1"><?php echo $value["date"] ?></label>
 
               <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
                   <div class="ac-sub">
                     <label for="ac-1"><?php echo $value["date"]?></label>
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
                   </div>
               </article>
             </div>
           <!-- first section  -->
         </td>
+<<<<<<< HEAD
+
+        <td>Processing</td>
+        <td>55 EGP</td>
+        <td>Cancel</td>
+      </tr>
+      <tr>
+        <td>
+          <!-- second section  -->
+            <div class="ac">
+                <input class="ac-input" id="ac-4" name="ac-4" type="checkbox" />
+                <label class="ac-label" for="ac-4">Nourhame sherif</label>
+              
+                <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
+                  <div class="ac-sub">
+                    <label for="ac-4">order date 2</label>
+                  </div>
+                </article>
+              </div>
+          <!-- second section  -->
+        </td>
+        <td>Out for delivery</td>
+        <td>20 EGP</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>
+          <!-- third section  -->
+          <div class="ac">
+              <input class="ac-input" id="ac-6" name="ac-6" type="checkbox" />
+              <label class="ac-label" for="ac-6">Fatema mohamed</label>
+            
+              <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
+                <div class="ac-sub">
+                  <label for="ac-6">order date 3</label>
+                </div>
+              </article>
+          </div>
+          <!-- third section  -->
+        </td>
+        <td>Done</td>
+        <td>29 EGP</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          
+        </td>
+=======
         <td><?php 
         if($value["status"] == 0){ 
            echo "Processing";
@@ -78,6 +166,7 @@
       <?php }?>
       <tr>
         <td>Total:<?php echo $total ?></td>
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
       </tr>
     </tbody>
   </table>
@@ -85,7 +174,10 @@
 
 
 <!-- start pagination  -->
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
 <nav aria-label="Page navigation example">
 <ul class="pagination pagination-circle pg-blue">
   <li class="page-item disabled"><a class="page-link">First</a></li>
@@ -111,4 +203,8 @@
 </nav>
 <!-- end pagination -->
 
+<<<<<<< HEAD
+<?php include('./components/footer.php') ?>
+=======
 <?php include('../../views/components/footer.php') ?>
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
