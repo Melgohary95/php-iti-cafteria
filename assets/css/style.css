@@ -56,7 +56,11 @@ div.scrolling-wrapper {
 
 
   .head{
+<<<<<<< HEAD
     margin-top: 50px;
+=======
+    margin-top: 10px;
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
 }
 
 
@@ -80,7 +84,14 @@ div.scrolling-wrapper {
     float:right;
     margin-right: 50px; 
 }
+<<<<<<< HEAD
 
+=======
+.table{
+    margin-top: 150px;
+
+}
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
 .img{
     width: 50px;
     height: 50px;
@@ -970,11 +981,19 @@ div.scrolling-wrapper {
 
   .productsTable{
     margin-top: 20px;
+<<<<<<< HEAD
+=======
+    min-height:45vh; 
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
   }
 
   #ProductsTable{
     margin-top: 2px !important;
     height: 30px !important;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
   }
 
   .addProBtn{
@@ -1019,9 +1038,30 @@ div.scrolling-wrapper {
 #editProductBtn{
   cursor: pointer;
 }
+<<<<<<< HEAD
 /*******************************************/
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
 }
+=======
+
+
+#paggination{
+  text-align: center;
+  list-style-type: none;
+
+}
+
+#paggination li{
+  display: inline-block;
+  margin: 0 15px;
+}
+
+/* #paggination li a{
+  border-right: 1px solid;
+  border-left: 1px solid;
+  padding: 0 9px;
+} */
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9

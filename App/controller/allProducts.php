@@ -8,7 +8,17 @@ require '../model/product.php';
 $p = new Product();
 $products = $p->db->select("products");
 
-
+if(isset($_GET['page']))
+{
+  $pageno = $_GET['page'];
+}
+else{
+  $pageno = 1;
+}
+$no_of_records_per_page = 3;
+$offset = ($pageno-1) * $no_of_records_per_page;
+$pageNum=ceil(count($products['resultset'])/$no_of_records_per_page);
+$pageProducts = array_slice($products['resultset'],$offset,$no_of_records_per_page);
 
 $inputs = array();
 if(count($_POST) > 0)
@@ -31,6 +41,10 @@ if(count($_POST) > 0)
       }
     
   }
+<<<<<<< HEAD
+=======
+//  var_dump($_POST['productId']);
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
     $p->db->update("products",$inputs,"id={$_POST["productId"]}");
     header('Location: '.$_SERVER['PHP_SELF']);
     

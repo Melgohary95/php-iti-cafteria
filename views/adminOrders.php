@@ -20,10 +20,18 @@
             </tr>
         </thead>
         <tbody>
+<<<<<<< HEAD
         <?php if(count($result)>2){
           array_splice($result,0,2);
         foreach($result['resultset'] as $key =>$res)
         { ?>
+=======
+        <?php 
+         
+        foreach($result["orders"] as $key =>$res)
+        { ?>
+       <?php //var_dump($res); ?>
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
             <tr>
                 <th scope="col">  <?php echo $res['date'] ?>  </th>
                 <th scope="col"> <?php echo $res['user_name'] ?> </th>
@@ -31,7 +39,10 @@
                 <th scope="col"> <?php echo $res['ext'] ?> </th>
                 <th scope="col">pickup</th>
             </tr>
+<<<<<<< HEAD
             <?php } } ?>
+=======
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
 
 
             <tr>
@@ -49,6 +60,7 @@
         
             <tr>
                 <td colspan="5">
+<<<<<<< HEAD
                     <p>total price 
                     <?php if(count($result)>2){
           array_splice($result,0,2);
@@ -58,6 +70,14 @@
                 </td>
             </tr>
             <?php } } ?>
+=======
+                    <p>total price </p>
+        
+                    <?php echo $res['total_price'] ?> 
+                </td>
+            </tr>
+            <?php  } ?>
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
         </tbody>
     </table>
     </div>
