@@ -29,10 +29,7 @@
     <div class="my-2 my-lg-0">
         <a href="#"><img src="../../assets/images/user.png" width="35" class="mr-2"/></a>
         <a href="#">Admin</a>
-<<<<<<< HEAD
-=======
         <a href="#" class="ml-3">Log out</a>
->>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
     </div>
   </div>
 </nav>

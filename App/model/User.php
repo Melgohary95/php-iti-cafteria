@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,22 +12,6 @@
  * @author lenovo
  */
 
-<<<<<<< HEAD
-require './core/Database.php'; 
-
-class User {
-    //put your code here
-    private $db;
-    
-    public function __construct() {
-        $this->db = new Database();
-    }
-    
-    public function addUser()
-    {
-//        echo "hiii";
-    }
-=======
 require '../../core/Database.php'; 
 
 class User {
@@ -119,5 +103,4 @@ class User {
 
 
 
->>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
 }

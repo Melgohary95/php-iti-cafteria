@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once '../model/User.php';
 $userModel = new User();
 $userVar=array();
