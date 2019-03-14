@@ -68,3 +68,14 @@ let deleteRow=()=>{
     $(this).closest('tr').remove()
  })
 }
+
+const getOrders = function(){
+  const mhttp = new XMLHttpRequest();
+  mhttp.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+      alert("Done");
+    }
+  }
+  mhttp.open("GET","../../App/controller/myOrders.php");
+  mhttp.send();
+};

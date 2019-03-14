@@ -16,15 +16,14 @@ require '../../core/Database.php';
 
 class Order {
     //put your code here
-    public $db;
+    private $db;
     
     public function __construct() {
         $this->db = new Database();
     }
     
     public function getOrders($fDate, $lDate){
-        $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;
-        ");
+        $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
         return $myOrders;
     }
 
@@ -39,16 +38,14 @@ class Order {
     }
 //-------------------- Aml ---------------------------
 //----------------fatma-----------
-//fatema
-
-    public function getAdminorders() {
+public function getAdminorders() {
         $productOrders = array();
-        $orders =$this->db->select("orders" ,'orders.date ,total_price ,rooms.number as roomNo,users.name as user_name,users.ext as                  ext','orders.user_id=users.id' and 'orders.room_id=rooms.id',null ,null ,"users,rooms");
+        $orders =$this->db->select("orders" ,'orders.date ,total_price ,rooms.number as roomNo,users.name as user_name,users.ext as ext','users.id=orders.user_id and rooms.id=orders.room_id and STATUS=0',null ,null ,"users,rooms");
         $result['orders'] = $orders['resultset'];
-       var_dump($result['orders']);
-
-                                      } 
-    
+       //var_dump($result['orders']);
+return $result;
+                                      }
+//----------------fatma--------------------------//
     /********************** nourhan ****************************/
                                       public function getAllProducts() {
         $productCategories = array();
