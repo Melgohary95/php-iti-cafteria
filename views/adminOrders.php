@@ -1,6 +1,6 @@
-<?php include('./components/header.php') ?>
+<?php include('../../views/components/header.php') ?>
+<?php include('../../views/components/navBar.php') ?>
 
-<?php include('./components/navBar.php') ?>
 
 <div class="noMarginRow row">
     <div class="col-2 ml-5 mt-2">
@@ -20,13 +20,19 @@
             </tr>
         </thead>
         <tbody>
+        <?php if(count($result)>2){
+          array_splice($result,0,2);
+        foreach($result['resultset'] as $key =>$res)
+        { ?>
             <tr>
-                <th scope="col">55/55/8888</th>
-                <th scope="col">Me</th>
-                <th scope="col">-7</th>
-                <th scope="col">5454</th>
+                <th scope="col">  <?php echo $res['date'] ?>  </th>
+                <th scope="col"> <?php echo $res['user_name'] ?> </th>
+                <th scope="col"> <?php echo $res['roomNo'] ?> </th>
+                <th scope="col"> <?php echo $res['ext'] ?> </th>
                 <th scope="col">pickup</th>
             </tr>
+            <?php } } ?>
+
 
             <tr>
                 <td colspan="5">
@@ -40,11 +46,18 @@
                 </div>
                 </td>
             </tr>
+        
             <tr>
                 <td colspan="5">
-                    <p>total price : 000</p>
+                    <p>total price 
+                    <?php if(count($result)>2){
+          array_splice($result,0,2);
+        foreach($result['resultset'] as $key =>$res)
+        { ?>
+                    <?php echo $res['total_price'] ?> </p>
                 </td>
             </tr>
+            <?php } } ?>
         </tbody>
     </table>
     </div>
