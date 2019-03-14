@@ -41,7 +41,11 @@
           <!-- first section  -->
             <div class="ac">
               <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
-              <label class="ac-label" for="ac-1">Amal Moustafa</label>
+              <label class="ac-label" for="ac-1">
+              <?php foreach($orders["resultset"] as $order): ?>
+                <?php echo $order["date"] ?>
+              <?php  endforeach;?>
+              </label>
 
               <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
                   <div class="ac-sub">
@@ -56,6 +60,7 @@
         <td>55 EGP</td>
         <td>Cancel</td>
       </tr>
+      
       <tr>
         <td>
           <!-- second section  -->
@@ -73,38 +78,16 @@
         </td>
         <td>Out for delivery</td>
         <td>20 EGP</td>
-        <td>1</td>
+        <td></td>
       </tr>
-      <tr>
-        <td>
-          <!-- third section  -->
-          <div class="ac">
-              <input class="ac-input" id="ac-6" name="ac-6" type="checkbox" />
-              <label class="ac-label" for="ac-6">Fatema mohamed</label>
-            
-              <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
-                <div class="ac-sub">
-                  <label for="ac-6">order date 3</label>
-                </div>
-              </article>
-          </div>
-          <!-- third section  -->
-        </td>
-        <td>Done</td>
-        <td>29 EGP</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td colspan="4">
-          
-        </td>
-      </tr>
+     
     </tbody>
   </table>
 </div>
 
 
 <!-- start pagination  -->
+
 <nav aria-label="Page navigation example">
 <ul class="pagination pagination-circle pg-blue">
   <li class="page-item disabled"><a class="page-link">First</a></li>
