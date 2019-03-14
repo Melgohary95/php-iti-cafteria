@@ -1,3 +1,5 @@
+
+<?php session_start(); ?>
 <?php
 
 
@@ -18,7 +20,7 @@ $error=0;
 
        if (isset($_POST['submit'])) {
        
-        var_dump($_POST);
+       // var_dump($_POST);
         if (empty($_POST["name"])) {
           $nameErr = "Name is required";
           $error++;
@@ -43,7 +45,8 @@ $error=0;
         }
         else{
             if($_POST["password"]==$_POST["cpassword"]){
-                $userVar['password']=$_POST["password"];
+                
+                $userVar['password']=md5($_POST["password"]);
             }
             else{
                 $cpasswordErr="please enter the same password";
@@ -71,17 +74,15 @@ $error=0;
         if (!empty($_FILES["profilePicture"])) {
             $img= trim($_FILES["profilePicture"]["name"]);
             $userVar['image'] = "../../assets/images/".$img;
+            $userVar['image']=$_POST["profilePicture"];
           }
-          $userVar['image']=$_POST["profilePicture"];
-            $userVar['role_id']=2;
-            $user->db->insert("users",$userVar);
-          var_dump($userVar);
+        
         if($error == 0)
-        {   $userVar['image']=$_POST["profilePicture"];
+        {   
             $userVar['role_id']=2;
             $user->db->insert("users",$userVar);
-           // $userVar=$user->addUser($userVar);
-            var_dump($userVar);
+          // $useri=$user->addUser($userVar['name'],$userVar['email'],$userVar['password'],$userVar['room_id'],$userVar['image'],$userVar['ext']);
+           // var_dump($userVar);
             
         }
 
@@ -136,4 +137,5 @@ $error=0;
 
     
 ?>
+
 <?php include('../../views/adminAddUser.php') ?>
