@@ -22,24 +22,41 @@ class Order {
         $this->db = new Database();
     }
     
-    public function getOrder($fDate = null, $lDate = null){
-        $myOrders = $this->db->select('orders','*',"user_id = 2;");
-    }
-    public function getOrders($fDate, $lDate){
-        $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
+    public function getOrders($fDate,$lDate){
+            $myOrders;
+        if(!empty($fDate) && !empty($lDate)){
+            $myOrders = $this->db->select('orders','*',"date BETWEEN '$fDate' AND '$lDate';");
+        } else {
+            $myOrders = $this->db->select('orders','*');
+        }
         return $myOrders;
     }
+    // public function getOrders($fDate, $lDate){
+    //     $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
+    //     return $myOrders;
+    // }
 
 //-------------------- Aml ---------------------------
 //-------------------- Aml ---------------------------
 //----------------fatma-----------
 public function getAdminorders() {
         $productOrders = array();
-        $orders =$this->db->select("orders" ,'orders.date ,total_price ,rooms.number as roomNo,users.name as user_name,users.ext as ext','users.id=orders.user_id and rooms.id=orders.room_id and STATUS=0',null ,null ,"users,rooms");
+        $orders =$this->db->select("orders" ,
+        'orders.date ,orders.id,total_price ,rooms.number as roomNo,users.name as user_name,users.ext as ext',
+        'users.id=orders.user_id and rooms.id=orders.room_id and STATUS=0',null ,null ,"users,rooms");
         $result['orders'] = $orders['resultset'];
-       //var_dump($result['orders']);
-return $result;
+       var_dump($result['orders']);
+       foreach($orders['resultset'] as $order){
+        $orderId=$order['id'];
+        $productOrders[$orderId]=$this->db->select("order_products"
+        ,'products.image as pimg ,order_products.amount as amount,order_products.Quantity as Qun,products.id as p_id'
+        ," order_products.order_id=$orderId and order_products.product_id=products.id "
+        ,null ,null,"orders ,products ")['resultset'];
+       $result['$productOrders'] = $productOrders;
+        var_dump($result);
+       return $result;
                                       }
+                                    }
 //----------------fatma--------------------------//
     /********************** nourhan ****************************/
                                       public function getAllProducts() {
