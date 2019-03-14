@@ -63,6 +63,47 @@ let displayEdit=(id)=>{
       
 }
 
+let displayEdit2=(id)=>{
+  var userName = document.getElementById("nameEditInput").value;
+  var roomNo = document.getElementById("roomEditInput").value;
+  var ext = document.getElementById("extEditInput").value;
+  
+  // var productImage = document.getElementById("imageEditInput").value;
+
+  
+
+  const xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+  var productInfo= this.responseText.split("**");
+  document.getElementById("nameEditInput").value=userInfo[0];
+  document.getElementById("roomEditInput").value=userInfo[1];
+  document.getElementById("extEditInput").value=userInfo[2];
+  }
+};
+if(true)
+{
+xmlhttp.open("GET", "../../core/editUserForm.php?userId=" + id, true);
+xmlhttp.send();
+}
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    alert(userInfo[1]);
+    
+  } else {
+    //add image name length too
+    if(userName.length > 0  )
+    {
+      userName=userInfo[1];
+    }else{
+      x.style.display = "none";
+    }
+    
+  }
+
+}
+
+
 let deleteRow=()=>{
   $('table').on('click',$(this), function(e){
     $(this).closest('tr').remove()

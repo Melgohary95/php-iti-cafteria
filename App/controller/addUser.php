@@ -60,7 +60,7 @@ $error=0;
               $num=$_POST['roomNo'];
             //  $user->db->insert("rooms",$room);
             //  $roomid=$user->db->select('rooms','id',$where = "number =$num");
-            $room= $this->db->select("rooms" ,"*","number='$num';");
+            $room= $user->db->select("rooms" ,"*","number='$num';");
             $result = $room['resultset'];
             $userVar['room_id']=$result[0]['id'];
             
@@ -72,10 +72,11 @@ $error=0;
         else{
             $userVar['ext']=$_POST["ext"];
         }
-        if (!empty($_FILES["profilePicture"])) {
-            $img= trim($_FILES["profilePicture"]["name"]);
+        if (!empty($_POST["profilePicture"])) {
+            $img= $_POST["profilePicture"];
+            var_dump($img);
             $userVar['image'] = "../../assets/images/".$img;
-            $userVar['image']=$_POST["profilePicture"];
+           // $userVar['image']=$_POST["profilePicture"];
           }
         
         if($error == 0)
@@ -90,7 +91,7 @@ $error=0;
 
 }
 
-        $target_dir = "/var/www/html/phpProject/assets/images/";
+        $target_dir = "/var/www/html/php-iti-cafteria/assets/images/";
         if(isset($_FILES["profilePicture"])){
         $target_file = $target_dir . basename($_FILES["profilePicture"]["name"]);
         

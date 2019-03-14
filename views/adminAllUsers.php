@@ -65,6 +65,7 @@
           <th>Users</th>
             <th>Room</th>
             <th>image</th>
+            <th>ext</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -81,12 +82,12 @@
             <td> <img width=80 src="<?php echo $user['image'] ?>" alt=""> </td>
             <td><?php echo $user['ext'] ?></td>
             <td>
-              <form id="form1" method="get">
-              <button type="submit" form="form1" id="deluserBtn">
+            <form id="form1" method="get">
+              <button type="submit" form="form1" id="delProductBtn">
               <input type="hidden" id="userIdDel" name="userIdDel" value="<?php echo $user['id'] ?>">
                 <i class="fa fa-trash fa-2x"  aria-hidden="true" onclick="deleteRow()"></i>   
               </button>
-              <i class="far fa-edit fa-2x" id="editProductBtn" onclick="displayEdit(<?php echo $user['id'] ?>)"></i>
+              <i class="far fa-edit fa-2x" id="editProductBtn" onclick="displayEdit2(<?php echo $user['id'] ?>)"></i>
 
               </form>
               </td>

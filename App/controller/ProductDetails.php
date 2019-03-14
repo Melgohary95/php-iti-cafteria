@@ -5,6 +5,7 @@
  * and open the template in the editor.
  */
 require_once '../model/Order.php';
+//var_dump("ggggg");
 if (isset($_GET['id'])) {
     $model = new Order();
  $values = json_decode($_GET['value'], true);
@@ -31,20 +32,23 @@ if (isset($_GET['id'])) {
 <tr>
     <td>
         <span class="sname" id="name_1508596137009">  <?php echo $result['name'] ?> </span>
+        <input type="hidden"  name="products[<?php echo $result['id'] ?>]" value="<?php echo $result['id'] ?>"/>
     </td>
-    <td>
+    <td class="itemPrice">
         <span class="text-right sprice" id="sprice_1508596137009"> <?php echo $result['price'] ?></span>
+        <input type="hidden" name="price[<?php echo $result['id'] ?>"  value="<?php echo $result['price'] ?>" />
     </td>
      <td class="quantity-section">
         <span class="plus"> + </span>
-        <input class="form-control input-qty kb-pad text-center quantity" name="quantity[<?php echo $result['id'] ?>]" type="text" value="1" >
+        <input type="number"  min="1" name="quantity[<?php echo $result['id'] ?>]" value="1" class="form-control input-qty kb-pad text-center quantity quantity-input " required=""/>
         <span class="minus"> - </span>
     </td>
-    <td >
-        <span class="text-right ssubtotal" >0</span>
+    <td class="itemTotal">
+        <input type="hidden" class="single-item-price" value="<?php echo $result['price'] ?>" name="amount[<?php echo $result['id'] ?>]" />
+        <span class="text-right ssubtotal " ><?php echo $result['price'] ?></span>
     </td>
     <td>
-        <i class="fa fa-trash-o tip pointer posdel remove" id="1508596137009" title="Remove"></i>
+         <i class="fa fa-trash fa-2x deleteItem pointer"  aria-hidden="true" ></i>
     </td>
 </tr>
  <?php endif; ?>

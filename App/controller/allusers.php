@@ -13,6 +13,7 @@ $users = $p->db->select("users");
 $inputs = array();
 if(count($_POST) > 0)
 {
+ // var_dump($_POST);
   if (!empty($_POST["nameEditInput"])) {
       $name= trim($_POST['nameEditInput']);
       $inputs['name'] = $name;      
@@ -25,9 +26,9 @@ if(count($_POST) > 0)
     $ext= trim($_POST['extEditInput']);
     $inputs['ext'] = $ext;
   }
-
+    var_dump($_POST['userId']);
     $p->db->update("users",$inputs,"id={$_POST["userId"]}");
-    header('Location: '.$_SERVER['PHP_SELF']);
+    //header('Location: '.$_SERVER['PHP_SELF']);
     
 }
 
