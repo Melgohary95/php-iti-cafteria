@@ -57,11 +57,12 @@ $error=0;
             $error++;
         }
         else{
-            //  $room['number']=$_POST['roomNo'];
-            //  $num=$room['number'];
+              $num=$_POST['roomNo'];
             //  $user->db->insert("rooms",$room);
             //  $roomid=$user->db->select('rooms','id',$where = "number =$num");
-            $userVar['room_id']=1;
+            $room= $this->db->select("rooms" ,"*","number='$num';");
+            $result = $room['resultset'];
+            $userVar['room_id']=$result[0]['id'];
             
         }
         if(empty($_POST["ext"])){

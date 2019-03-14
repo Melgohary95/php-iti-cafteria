@@ -64,7 +64,7 @@ class User {
         }
 
         public function login($email, $password){
-            //$userpassword = md5($password);
+            $userpassword = md5($password);
             $user= $this->db->select("users" ,"*","email='$email' and password='$password' ;");
             $result = $user['resultset'];
             $count_row = count($result);
@@ -90,5 +90,14 @@ class User {
             
     
         }
+
+
+        public function logout() {
+            $_SESSION['login'] = FALSE;
+            unset($_SESSION);
+            session_destroy();
+            }
+
+
 
 }
