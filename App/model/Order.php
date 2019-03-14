@@ -22,8 +22,14 @@ class Order {
         $this->db = new Database();
     }
     
-    public function getOrders($fDate = null, $lDate = null){
-        $myOrders = $this->db->select('orders','*',"user_id = 2;");
+    public function getOrders($fDate,$lDate){
+            $myOrders;
+        if(!empty($fDate) && !empty($lDate)){
+            $myOrders = $this->db->select('orders','*',"date BETWEEN '$fDate' AND '$lDate';");
+        } else {
+            $myOrders = $this->db->select('orders','*');
+        }
+        return $myOrders;
     }
     // public function getOrders($fDate, $lDate){
     //     $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");

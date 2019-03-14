@@ -20,7 +20,7 @@
 
     <div class="col">
       
-      <button>Search Orders by date</button>
+      <button type="submit" onclick="getMyOrders()">Search Orders by date</button>
     </div>
     
   </div>
@@ -42,11 +42,7 @@
           <!-- first section  -->
             <div class="ac">
               <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
-              <label class="ac-label" for="ac-1">
-              <?php foreach($orders["resultset"] as $order): ?>
-                <?php echo $order["date"] ?>
-              <?php  endforeach;?>
-              </label>
+              <label id ="firstRow" class="ac-label" for="ac-1"></label>
 
               <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
                   <div class="ac-sub">

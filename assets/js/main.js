@@ -69,13 +69,19 @@ let deleteRow=()=>{
  })
 }
 
-const getOrders = function(){
-  const mhttp = new XMLHttpRequest();
-  mhttp.onreadystatechange = function(){
-    if(this.readyState == 4 && this.status == 200){
-      alert("Done");
+const getMyOrders = function(){
+  $.ajax({
+    url: "../../App/controller/myOrders.php",
+    type: "GET",
+    // sent data object to server
+    data:orders,
+    success: function (orders) {
+//            alert(data);
+        // $(".order_products_table").append(data);
+        const dataSet = orders["resultset[0]"];
+        const date = dataSet["date"];
+        document.getElementById("firstRow").value = dataSet;
+
     }
-  }
-  mhttp.open("GET","../../App/controller/myOrders.php");
-  mhttp.send();
+});
 };
