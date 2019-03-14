@@ -13,7 +13,8 @@ ini_set('display_startup_errors', TRUE);
 
 
 require_once '../model/User.php';
-
+$names='sara';
+$nameErr=$emailErr=$passwordErr=$cpasswordErr=$roomNoErr=$extErr=$pictureErr="";
 $user = new User();
 $userVar=array();
 $error=0;
