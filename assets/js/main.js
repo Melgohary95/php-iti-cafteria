@@ -119,10 +119,7 @@ const getMyOrders = function(){
     success: function (orders) {
 //            alert(data);
         // $(".order_products_table").append(data);
-        const dataSet = orders["resultset[0]"];
-        const date = dataSet["date"];
-        document.getElementById("firstRow").value = dataSet;
-
+        $(".table-responsive").append(orders);
     }
 });
 };

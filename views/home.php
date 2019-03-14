@@ -12,7 +12,7 @@
                             </a>
                         </li> 
                         <li class="flat-box waves-effect waves-block">
-                            <a href="/phpProject/myOrders.php">
+                            <a href="/php-iti-cafteria/App/controller/myOrders.php">
                                 <span class="menu-text"> My Orders </span>
                             </a>
                         </li>

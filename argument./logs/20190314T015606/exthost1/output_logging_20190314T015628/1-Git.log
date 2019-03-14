@@ -47898,3 +47898,4 @@ Open repository: /var/www/html/php-iti-cafteria
 > git rev-list --left-right master...refs/remotes/origin/master
 > git for-each-ref --format %(refname) %(objectname) --sort -committerdate
 > git remote --verbose
+> git check-ignore -z --stdin

@@ -11,8 +11,14 @@
  *
  * @author lenovo
  */
+//var_dump("hhhh");
 require_once '../model/Order.php';
 $model = new Order();
+
+if(isset($_POST) && count($_POST) >0)
+{
+    $model->addOrder($_POST);
+}
 $result=$model->getAllProducts();
 //var_dump($result['users']);
 include ("../../views/adminConfirmOrders.php");

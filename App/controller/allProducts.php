@@ -41,7 +41,10 @@ if(count($_POST) > 0)
       }
     
   }
+<<<<<<< HEAD
+=======
 //  var_dump($_POST['productId']);
+>>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
     $p->db->update("products",$inputs,"id={$_POST["productId"]}");
     header('Location: '.$_SERVER['PHP_SELF']);
     
