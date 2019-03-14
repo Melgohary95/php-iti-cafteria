@@ -37,6 +37,16 @@ class Order {
     //     return $myOrders;
     // }
 //-------------------- Aml ---------------------------
+public function orderChecks($fDate,$lDate){
+    echo "test checks";
+    if(!empty($fDate) && !empty($lDate)){
+        $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
+    }
+    else{
+        $myOrders = $this->db->select('orders','*');
+    }
+    return $myOrders;
+}
 //-------------------- Aml ---------------------------
 //----------------fatma-----------
     public function getAdminorders() {
