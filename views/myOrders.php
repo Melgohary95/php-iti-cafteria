@@ -1,148 +1,124 @@
-<?php include('../../views/components/header.php') ?>
+<?php include('./components/header.php') ?>
 
+<<<<<<< HEAD
 <div class="row main-header">
     <!-- Header Navbar: style can be found in header.less -->
     <div class="col-md-4 navbar" >
         <ul class="nav tab-bar-icons">
             <li>
-                <a href="../../views/home.php">
+                <a href="/phpProject/home.php">
                     <span class="menu-text">Home</span>
                 </a>
             </li> 
             <li class="flat-box waves-effect waves-block">
-                <a href="./myOrders.php">
+                <a href="/phpProject/myOrders.php">
                     <span class="menu-text"> My Orders </span>
                 </a>
             </li>
+=======
+<?php include('./components/navBar.php') ?>
+>>>>>>> d785a4235713261cbb31de2535449c8844b5a5da
 
-        </ul>
-    </div>
-    
-    <div class="col-md-5">
-    </div>
-    <div class="col-md-3">
-        <ul class="nav navbar-nav navbar-right user">
-
-            <li class="dropdown navbar-user">
-                
-                <a href="javascript:;" class="dropdown-toggle profile-name" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/14690942_936478356496967_3208200680112630503_n.jpg" alt=""/>
-                    <span class="hidden-xs">Nourhan</span>
-                    <b class="caret"></b>
-                </a>
-                
-            </li>
-        </ul>
-        <div class="clearfix"></div>
-  
-    </div>
-</div>
 <div class="container">
 
-<h2>My Orders</h2>
+<h2>My Orders</h2><br>
 
-<form>
-<div class="row">
-<div class="col">
-  <input type="date" class="form-control" placeholder="First name">
-</div>
-<div class="col">
-  <input type="date" class="form-control" placeholder="Last name">
-</div>
-
-</div>
-<div class="row">
-  <div class="form-row align-items-center">
-      <div style="padding-left: 19px" class="col-auto my-1">
-        <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select> -->
-      </div>
-</div>
-
-</div>
-</form>
-<div class="ac">
-<!-- <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
-<label class="ac-label" for="ac-1">Amal Moustafa</label> -->
-<table class="table table-striped">
-      <tbody>
-        <tr>
-            <th>Order Date</th>
-            <th>Status</th>
-            <th>Amount</th>
-            <th>Action</th>
-        </tr>
-        <tr>
-            <td>
-                <div class="ac">
-                    <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
-                    <label class="ac-label" for="ac-1">2018-2-20 10:30 AM</label>
-                    <article class="ac-text">  
-                        <div class="ac-sub">
-                            <div>
-                                <img src="index.jpg" class="rounded float-left" alt="image" height="100px">
-                                <img src="index.jpg" class="rounded float-left" alt="image" height="100px">
-                                <img src="index.jpg" class="rounded float-left" alt="image" height="100px">
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </td>
-            <td>Processing</td>
-            <td>50 LE</td>
-            <td>Cancel</td>
-        </tr>
-        <tr>
-            <td>
-                <input class="ac-input" id="ac-2" name="ac-2" type="checkbox" />
-                <label class="ac-label" for="ac-2">2018-5-12 3:00 PM</label>
-                <article class="ac-text">  
-                    <div class="ac-sub">
-                        <div>
-                            <img src="index.jpg" class="rounded float-left" alt="image" height="100px">
-                            <img src="index.jpg" class="rounded float-left" alt="image" height="100px">
-                            <img src="index.jpg" class="rounded float-left" alt="image" height="100px">
-                        </div>
-                    </div>
-                </article>
-            </td>
-            <td>Out for delivery</td>
-            <td>40 LE</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>
-                <input class="ac-input" id="ac-3" name="ac-3" type="checkbox" />
-                <label class="ac-label" for="ac-3">2019-10-16 6:30 PM</label>
-                <article class="ac-text">  
-                    <div class="ac-sub">
-                        <div>
-                            <img src="index.jpg" class="rounded float-left" alt="image" height="100px">
-                            <img src="index.jpg" class="rounded float-left" alt="image" height="100px">
-                            <img src="index.jpg" class="rounded float-left" alt="image" height="100px">
-                        </div>
-                    </div>
-                </article>
-            </td>
-            <td>Done</td>
-            <td>60 LE</td>
-            <td></td>
-        </tr>
-        <tr>
-        <td>
-            <div>
-                <P class="float-right">Total    EGP 100</P>
-            </div>
-            </td>
-        </tr>
-      </tbody>
-    </table>
+<form method="post">
+  <div class="row">
+    <div class="col">
+      <input type="text" onfocus="(this.type='date')" 
+      class="form-control" placeholder="Date from" name="startDate" >
     </div>
-</div> 
+
+    <div class="col">
+      <input type="text" onfocus="(this.type='date')" 
+      class="form-control" placeholder="Date to" name="endDate">
+    </div>
+
+    <div class="col">
+      <input type="submit" name="search" value="Search Orders by date">
+    </div>
+    
+  </div>
+</form>
+
+<br><br>
+
+<div class="table-responsive">
+  <table style="margin-top:0px" class="table">
+    <tbody>
+      <tr>
+        <td>Order Date</td>
+        <td>Status</td>
+        <td>Amount</td>
+        <td>Action</td>
+      </tr>
+      <tr>
+        <td>
+          <!-- first section  -->
+            <div class="ac">
+              <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
+              <label class="ac-label" for="ac-1">Amal Moustafa</label>
+
+              <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
+                  <div class="ac-sub">
+                    <label for="ac-1">order date 1 </label>
+                  </div>
+              </article>
+            </div>
+          <!-- first section  -->
+        </td>
+
+        <td>Processing</td>
+        <td>55 EGP</td>
+        <td>Cancel</td>
+      </tr>
+      <tr>
+        <td>
+          <!-- second section  -->
+            <div class="ac">
+                <input class="ac-input" id="ac-4" name="ac-4" type="checkbox" />
+                <label class="ac-label" for="ac-4">Nourhame sherif</label>
+              
+                <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
+                  <div class="ac-sub">
+                    <label for="ac-4">order date 2</label>
+                  </div>
+                </article>
+              </div>
+          <!-- second section  -->
+        </td>
+        <td>Out for delivery</td>
+        <td>20 EGP</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>
+          <!-- third section  -->
+          <div class="ac">
+              <input class="ac-input" id="ac-6" name="ac-6" type="checkbox" />
+              <label class="ac-label" for="ac-6">Fatema mohamed</label>
+            
+              <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
+                <div class="ac-sub">
+                  <label for="ac-6">order date 3</label>
+                </div>
+              </article>
+          </div>
+          <!-- third section  -->
+        </td>
+        <td>Done</td>
+        <td>29 EGP</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 
 <!-- start pagination  -->
@@ -171,4 +147,4 @@
 </nav>
 <!-- end pagination -->
 
-<?php include('../../views/components/footer.php') ?>
+<?php include('./components/footer.php') ?>

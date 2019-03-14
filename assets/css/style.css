@@ -993,15 +993,15 @@ div.scrolling-wrapper {
     margin-top: 30px ;
     margin-bottom: 10px ;
 }
-.btn{
+/* .btn{
     margin-left: 30%;
-}
+} */
 
 .editProduct{
   width: 80vw;
 }
 
-#editImage{
+#imageEditInput{
   border: 0;
   padding-left: 0;
 }
@@ -1012,4 +1012,13 @@ div.scrolling-wrapper {
 
 #edit{
   display: none;
+}
+
+#delProductBtn{
+  border: 0;
+  background-color: white;
+}
+
+#editProductBtn{
+  cursor: pointer;
 }

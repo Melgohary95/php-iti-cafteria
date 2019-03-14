@@ -11,8 +11,8 @@
  *
  * @author egypt
  */
-
 class Database {
+
     //put your code here
 //    private $db = array();
     private $connection;
@@ -25,12 +25,11 @@ class Database {
 //        $this->db['username'] = $args['username'];
 //        $this->db['password'] = $args['password'];
 //        $this->db['database'] = $args['database'];
-          $this->open_connection();
+        $this->open_connection();
     }
 
     public function __destruct() {
         $this->close_connection();
-        
     }
 
     public function open_connection() {
@@ -39,14 +38,10 @@ class Database {
        
 //                $this->connection = mysqli_connect(Config::DB_HOST, Config::DB_USERNAME, Config::DB_PASSWORD) or die("Connection failed: " . mysqli_connect_error());
 //        var_dump($this->connection);
-            //die :print message 
-            //mysqli_connect_error():returns the error description from the last connection error if there is no error return null
+        //die :print message 
+        //mysqli_connect_error():returns the error description from the last connection error if there is no error return null
 //            or die('Could not connect: ' . mysqli_error($this->connection));
         $this->select_database();
-                
-            
-          
-        
     }
 
     public function close_connection() {
@@ -57,13 +52,13 @@ class Database {
     }
 
     public function select_database() {
+//        echo 'hhh';
         //mysqli_select_db:selects database name
-      
-         mysqli_select_db($this->connection, "cafteria") or die("database selection failed :" . mysqli_error($this->connection));
+
+        mysqli_select_db($this->connection, "cafteria") or die("database selection failed :" . mysqli_error($this->connection));
 //        mysqli_select_db($this->connection, Config::DB_NAME) or die("database selection failed :" . mysqli_error($this->connection));
         //specifies the default character set to be used when sending data from and to the database server.
         mysqli_set_charset($this->connection, "utf8") or die("characters can not be set");
-        // echo 'hhh';
 
 //        mysqli_query($this->connection, "SET NAMES utf8");
 //	mysqli_query($this->connection, "set characer set utf8");
@@ -72,8 +67,7 @@ class Database {
     /////////////////////////////////////////////
     //Asking for a query
     public function query($query) {
-        if(!$this->connection)
-        {
+        if (!$this->connection) {
             return false;
         }
         $this->last_query = $query; // comment this after debugging
@@ -149,16 +143,19 @@ class Database {
         if ($result) {
             $this->result_array['result'] = true;
             $this->result_array['number_of_rows'] = mysqli_num_rows($result);
-            if ($this->result_array['number_of_rows'] > 1) {
+            if ($this->result_array['number_of_rows'] > 0) {
                 $records = array();
                 while ($record = mysqli_fetch_array($result)) {
                     $records[] = $record;
                 }
                 $this->result_array['resultset'] = $records;
-            } elseif ($this->result_array['number_of_rows'] == 1) {
-                $record = mysqli_fetch_array($result);
-                $this->result_array['resultset'] = $record;
-            } else {
+            }
+//            elseif ($this->result_array['number_of_rows'] == 1) {
+////                $record = mysqli_fetch_array($result);
+//                $record[]=mysqli_fetch_array($result);
+//                $this->result_array['resultset'] = $record;
+//            } 
+            else {
                 $empty = "this table is empty";
                 $this->result_array['resultset'] = $empty;
             }
@@ -227,11 +224,48 @@ class Database {
 //        $this->close_connection();
         return $this->result_array;
     }
+
     //escape function to prevent sql injection
-    public function escape($string)
-    {
+    public function escape($string) {
         return mysqli_escape_string($this->connection, $string);
-        
+    }
+
+    public function selectById($table, $rows = '*', $where = null, $order = null, $limit = null, $join = null) {
+        // Create query from the variables passed to the function
+        $query = 'SELECT ' . $rows . ' FROM ' . $table;
+        if ($join != null) {
+            $query .= ' JOIN ' . $join;
+        }
+        if ($where != null) {
+            $query .= ' WHERE ' . $where;
+        }
+        if ($order != null) {
+            $query .= ' ORDER BY ' . $order;
+        }
+        if ($limit != null) {
+            $query .= ' LIMIT ' . $limit;
+        }
+        $result = $this->query($query);
+        // Check to see if the table exists
+        if ($result) {
+            $this->result_array['result'] = true;
+            $this->result_array['number_of_rows'] = mysqli_num_rows($result);
+            if ($this->result_array['number_of_rows'] == 1) {
+                $record = mysqli_fetch_array($result);
+//                $record[]=mysqli_fetch_array($result);
+                $this->result_array['resultset'] = $record;
+            } else {
+                $empty = "this table is empty";
+                $this->result_array['resultset'] = $empty;
+            }
+        } else {
+            $this->result_array['result'] = false;
+            $this->result_array['error_no'] = mysqli_errno($this->connection);
+            $this->result_array['error_message'] = mysqli_error($this->connection);
+        }
+
+//        $this->close_connection();
+        return $this->result_array;
     }
 
 }
