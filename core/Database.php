@@ -35,7 +35,7 @@ class Database {
     public function open_connection() {
        // $this->connection = mysqli_connect("localhost", "root", "") or die("Connection failed: " . mysqli_connect_error())or die("Connection failed: " . mysqli_connect_error());
 
-        $this->connection = mysqli_connect("localhost", "root", "password") or die("Connection failed: " . mysqli_connect_error())or die("Connection failed: " . mysqli_connect_error());
+        $this->connection = mysqli_connect("localhost", "root", "felfel") or die("Connection failed: " . mysqli_connect_error())or die("Connection failed: " . mysqli_connect_error());
        
 //                $this->connection = mysqli_connect(Config::DB_HOST, Config::DB_USERNAME, Config::DB_PASSWORD) or die("Connection failed: " . mysqli_connect_error());
 //        var_dump($this->connection);
