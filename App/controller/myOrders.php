@@ -7,8 +7,6 @@ require '../model/Order.php';
 
 $order = new Order();
 $orders = $order->getOrders($_REQUEST["startDate"], $_REQUEST["endDate"]);
-var_dump($orders);
-
-
+$total = 0;
 ?>
 <?php include('../../views/myOrders.php') ?>

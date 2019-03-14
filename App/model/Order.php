@@ -25,7 +25,7 @@ class Order {
     public function getOrders($fDate,$lDate){
             $myOrders;
         if(!empty($fDate) && !empty($lDate)){
-            $myOrders = $this->db->select('orders','*',"date BETWEEN '$fDate' AND '$lDate';");
+            $myOrders = $this->db->select('orders','*',"user_id = 4 AND date BETWEEN '$fDate' AND '$lDate';");
         } else {
             $myOrders = $this->db->select('orders','*');
         }
