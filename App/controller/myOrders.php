@@ -7,5 +7,8 @@ require '../model/Order.php';
 
 $order = new Order();
 // var_dump($order->getOrders("'1995-11-2'","'1996-9-16'"));
+// var_dump($_REQUEST);
+$output = $order->getOrders($_POST['startDate'],$_POST['endDate']);
+var_dump($output);
 ?>
 <?php include('../../views/myOrders.php') ?>

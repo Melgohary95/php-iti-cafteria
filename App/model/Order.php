@@ -16,15 +16,14 @@ require '../../core/Database.php';
 
 class Order {
     //put your code here
-    public $db;
+    private $db;
     
     public function __construct() {
         $this->db = new Database();
     }
     
     public function getOrders($fDate, $lDate){
-        $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;
-        ");
+        $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
         return $myOrders;
     }
 
