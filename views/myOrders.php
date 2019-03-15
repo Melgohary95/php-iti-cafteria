@@ -2,6 +2,50 @@
 
 <?php include('../../views/components/navBar.php') ?>
 
+
+<!-- start user navbar -->
+
+<div class="container-fluid">
+            <div class="row main-header">
+                <!-- Header Navbar: style can be found in header.less -->
+                <div class="col-md-4 navbar" >
+                    <ul class="nav tab-bar-icons">
+                        <li>
+                            <a href="/phpProject/home.php">
+                                <span class="menu-text">Home</span>
+                            </a>
+                        </li> 
+                        <li class="flat-box waves-effect waves-block">
+                            <a href="/phpProject/myOrders.php">
+                                <span class="menu-text"> My Orders </span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                
+                <div class="col-md-5">
+                </div>
+                <div class="col-md-3">
+                    <ul class="nav navbar-nav navbar-right user">
+
+                        <li class="dropdown navbar-user">
+                           
+                            <a href="javascript:;" class="dropdown-toggle profile-name" data-toggle="dropdown" aria-expanded="false">
+                                <img src="images/14690942_936478356496967_3208200680112630503_n.jpg" alt=""/>
+                                <span class="hidden-xs"> Nourhan </span>
+                                <b class="caret"></b>
+                            </a>
+                            
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+             
+                </div>
+            </div>
+
+      <!-- end user navbar-->
+
 <div class="container">
 
 <h2>My Orders</h2><br>
@@ -103,3 +147,4 @@
 <!-- end pagination -->
 
 <?php include('../../views/components/footer.php') ?>
+

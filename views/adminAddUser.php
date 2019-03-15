@@ -9,12 +9,10 @@
                     Add User
                 </span>
             </div>
-             <?php $nameErr=$emailErr=$passwordErr=$cpasswordErr=$roomNoErr=$extErr=$pictureErr="";
-             ?>
             <form method="post" class="login100-form validate-form">
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                     <span class="label-input100">Name</span>
-                    <input class="input100" type="text" name="name" placeholder="Enter name" required>
+                    <input class="input100" type="text" name="name" placeholder="Enter name" >
                     <span >* <?php echo $nameErr;?></span>
                     <span class="focus-input100"></span>
                 </div>
@@ -37,13 +35,27 @@
                     <span >* <?php echo $cpasswordErr;?></span>
                     <span class="focus-input100"></span>
                 </div>
-                
-                <div class="wrap-input100 validate-input m-b-26" data-validate="Room No">
-                    <span class="label-input100">ٌRoom No</span>
-                    <input class="input100" type="text" name="roomNo" placeholder="Room No" required>
-                    <span >* <?php echo $roomNoErr;?></span>
-                    <span class="focus-input100"></span>
-                </div>
+         
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Ext">
+                    <span class="label-input100">ٌRoom</span>
+    <select class="form-control" id="roomNo" name="roomNo" required>
+		<option value="" selected disabled hidden>Choose Room</option>
+    
+    
+    <?php 
+    $rooms = $user->db->select("rooms"); 
+    if(count($rooms)>2){
+          array_splice($rooms,0,2);
+        foreach($rooms['resultset'] as $key =>$room)
+        { ?>
+
+      <option value=<?php echo $room[0] ?>><?php echo $room[1] ?></option>
+
+        <?php }}?>
+
+
+    </select>
+		</div>
                 
                 
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Ext">

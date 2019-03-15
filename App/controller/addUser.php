@@ -21,7 +21,7 @@ $error=0;
 
        if (isset($_POST['submit'])) {
        
-       // var_dump($_POST);
+        var_dump($_POST);
         if (empty($_POST["name"])) {
           $nameErr = "Name is required";
           $error++;
@@ -51,6 +51,7 @@ $error=0;
             }
             else{
                 $cpasswordErr="please enter the same password";
+                $error++;
             }
         }
         if(empty($_POST["roomNo"])){
@@ -58,12 +59,13 @@ $error=0;
             $error++;
         }
         else{
-              $num=$_POST['roomNo'];
-            //  $user->db->insert("rooms",$room);
-            //  $roomid=$user->db->select('rooms','id',$where = "number =$num");
-            $room= $user->db->select("rooms" ,"*","number='$num';");
-            $result = $room['resultset'];
-            $userVar['room_id']=$result[0]['id'];
+            var_dump($_POST['roomNo']);
+            //   $num=$_POST['roomNo'];
+            // //  $user->db->insert("rooms",$room);
+            // //  $roomid=$user->db->select('rooms','id',$where = "number =$num");
+            // $room= $user->db->select("rooms" ,"*","number='$num';");
+            // $result = $room['resultset'];
+            $userVar['room_id']=$_POST['roomNo'];
             
         }
         if(empty($_POST["ext"])){

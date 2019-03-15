@@ -23,9 +23,9 @@ class Order {
     }
     
     public function cancelOrders($mid){
-        $nid = (int)$mid;
-        var_dump($mid);
-        $result = $this->db->delete("orders","id = $nid;");
+        $cancel['status']=3;
+        $result = $this->db->update("orders",$cancel,"id = $mid;");
+        //$result = $this->db->delete("orders","id = $mid;");
     }
 
     public function getOrderProducts($id){
@@ -117,6 +117,26 @@ public function getAdminorders() {
 
 //        var_dump($result);
         return $result;
+    }
+    
+    public function getUserProducts()
+    {
+        $productCategories = array();
+        $categories = $this->db->select("categories");
+        $userId = $_SESSION['uid'];
+        $result['user'] = $this->db->selectById("users", '*', "id=$userId")['resultset'];
+        $result['rooms'] = $this->db->select("rooms", "*")['resultset'];
+
+        $result['categories'] = $categories['resultset'];
+        foreach ($categories['resultset'] as $category) {
+            $categoryId = $category['id'];
+            $productCategories[$categoryId] = $this->db->select("products", '*', "category_id=$categoryId and availability=1", "`products`.`id`DESC")['resultset'];
+        }
+        $result['productCategories'] = $productCategories;
+
+//        var_dump($result);
+        return $result;
+       
     }
 
     public function getProductDetails($id) {
