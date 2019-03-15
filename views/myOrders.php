@@ -2,6 +2,50 @@
 
 <?php include('../../views/components/navBar.php') ?>
 
+
+<!-- start user navbar -->
+
+<div class="container-fluid">
+            <div class="row main-header">
+                <!-- Header Navbar: style can be found in header.less -->
+                <div class="col-md-4 navbar" >
+                    <ul class="nav tab-bar-icons">
+                        <li>
+                            <a href="/phpProject/home.php">
+                                <span class="menu-text">Home</span>
+                            </a>
+                        </li> 
+                        <li class="flat-box waves-effect waves-block">
+                            <a href="/phpProject/myOrders.php">
+                                <span class="menu-text"> My Orders </span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                
+                <div class="col-md-5">
+                </div>
+                <div class="col-md-3">
+                    <ul class="nav navbar-nav navbar-right user">
+
+                        <li class="dropdown navbar-user">
+                           
+                            <a href="javascript:;" class="dropdown-toggle profile-name" data-toggle="dropdown" aria-expanded="false">
+                                <img src="images/14690942_936478356496967_3208200680112630503_n.jpg" alt=""/>
+                                <span class="hidden-xs"> Nourhan </span>
+                                <b class="caret"></b>
+                            </a>
+                            
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+             
+                </div>
+            </div>
+
+      <!-- end user navbar-->
+
 <div class="container">
 
 <h2>My Orders</h2><br>
@@ -37,20 +81,13 @@
         <td>Amount</td>
         <td>Action</td>
       </tr>
-<<<<<<< HEAD
-=======
       <?php foreach ($orders["resultset"] as $value){?>
->>>>>>> c0d94bd305256e0232d6fa0b0e6ffe843d24062d
       <tr>
         <td>
           <!-- first section  -->
             <div class="ac">
               <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
-<<<<<<< HEAD
-              <label id ="firstRow" class="ac-label" for="ac-1">amal moustafa</label>
-=======
               <label id ="firstRow" class="ac-label" for="ac-1"><?php echo $value["date"]?></label>
->>>>>>> c0d94bd305256e0232d6fa0b0e6ffe843d24062d
 
               <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
                   <div class="ac-sub">
@@ -92,45 +129,6 @@
         echo $value["total_price"];
         ?>
         </td>
-        <td><?php 
-        if($value["status"] == 0){
-          $newOrder = new Order(); 
-          echo "<button type=submit onclick = '".$newOrder->cancelOrders($value[id]).">'>'";
-          echo '<a href="./myOrders.php">cancel</a>';
-          echo '</button>';
-        }
-        ?>
-        </td>
-        </tr>
-    <?php // }?>
-      <tr>
-        <td>
-          <!-- second section  -->
-            <div class="ac">
-                <input class="ac-input" id="ac-4" name="ac-4" type="checkbox" />
-                <label class="ac-label" for="ac-4">ahmed mostafa</label>
-              
-                <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
-                  <div class="ac-sub">
-                    <label for="ac-4">
-                      <div class="table-responsive">
-                        <table>
-                          <tr>
-                            <td><img style="width:50px; height:50px;" src="../../assets/images/user.png" alt="product1"></td>
-                          </tr>
-                        </table>
-                      </div>
-                    </label>
-                  </div>
-                </article>
-              </div>
-          <!-- second section  -->
-        </td>
-        <td>Out for delivery</td>
-        <td>20 EGP</td>
-        <td></td>
-      </tr>
-     
         <td><?php if($value["status"] == 0){ ?>
             <a href="./myOrders.php" onclick='<?php $order->cancelOrders($value["id"])?>'>cancel</a>
         <?php }?>
@@ -148,3 +146,4 @@
 <!-- end pagination -->
 
 <?php include('../../views/components/footer.php') ?>
+

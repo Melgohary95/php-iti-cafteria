@@ -23,7 +23,9 @@ class Order {
     }
     
     public function cancelOrders($mid){
-        $result = $this->db->delete("orders","id = $mid;");
+        $cancel['status']=3;
+        $result = $this->db->update("orders",$cancel,"id = $mid;");
+        //$result = $this->db->delete("orders","id = $mid;");
     }
 
     public function getOrders($fDate,$lDate){
