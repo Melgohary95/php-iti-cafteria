@@ -13,7 +13,6 @@ ini_set('display_startup_errors', TRUE);
 
 
 require_once '../model/User.php';
-$names='sara';
 $nameErr=$emailErr=$passwordErr=$cpasswordErr=$roomNoErr=$extErr=$pictureErr="";
 $user = new User();
 $userVar=array();
@@ -21,9 +20,11 @@ $error=0;
 
        if (isset($_POST['submit'])) {
        
-        var_dump($_POST);
+       // var_dump(empty($_POST["name"]));
         if (empty($_POST["name"])) {
+            
           $nameErr = "Name is required";
+        //  var_dump($nameErr);
           $error++;
         } else {
           $userVar['name'] = $_POST["name"];
@@ -34,7 +35,19 @@ $error=0;
             $error++;
         }
         else{
-            $userVar['email']=$_POST["email"];
+            $useremail=$_POST["email"];
+             $users= $user->db->select("users" ,"*","email='$useremail';");
+             $result = $users['resultset'];
+              //  $count_row = count($users);
+                var_dump(empty($result[0]['email']));
+                if(empty($result[0]['email']) ){
+                    $userVar['email']=$useremail;
+                }
+                else{
+                    $emailErr="this is email is used before"; 
+                    $error++;
+                }
+            
         }
         if(empty($_POST["password"])){
             $passwordErr="password is required";
@@ -83,12 +96,16 @@ $error=0;
           }
         
         if($error == 0)
-        {   
+        {   var_dump($error);                                          
             $userVar['role_id']=2;
             $user->db->insert("users",$userVar);
           // $useri=$user->addUser($userVar['name'],$userVar['email'],$userVar['password'],$userVar['room_id'],$userVar['image'],$userVar['ext']);
            // var_dump($userVar);
             
+        }
+        else{
+            var_dump($error);
+           // header("Location: ./addUser.php");    
         }
 
 
