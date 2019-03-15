@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,78 +16,76 @@ require '../../core/Database.php';
 
 class Order {
 
-    //put your code here
+//put your code here
     private $db;
 
     public function __construct() {
         $this->db = new Database();
     }
-    
-    public function cancelOrders($mid){
-        $result = $this->db->delete("orders","id = $mid;");
+
+    public function cancelOrders($mid) {
+        $result = $this->db->delete("orders", "id = $mid;");
     }
 
-    public function getOrders($fDate,$lDate){
-            $myOrders;
-            $userId = $_SESSION["uid"];
-        if(!empty($fDate) && !empty($lDate)){
-            $myOrders = $this->db->select('orders','*',"user_id = $userId AND date BETWEEN '$fDate' AND '$lDate';");
+    public function getOrders($fDate, $lDate) {
+        $myOrders;
+        $userId = $_SESSION["uid"];
+        if (!empty($fDate) && !empty($lDate)) {
+            $myOrders = $this->db->select('orders', '*', "user_id = $userId AND date BETWEEN '$fDate' AND '$lDate';");
         } else {
-            $myOrders = $this->db->select('orders', '*',"user_id = $userId");
+            $myOrders = $this->db->select('orders', '*', "user_id = $userId");
         }
         return $myOrders;
     }
 
-    public function updateOrders(){
+    public function updateOrders() {
         $status['status'] = 1;
-        $this->db->update('orders',$status,'status = 0');
+        $this->db->update('orders', $status, 'status = 0');
     }
 
-    public function getUsers(){
-        $myUsers = $this->db->select('users','*');
+    public function getUsers() {
+        $myUsers = $this->db->select('users', '*');
         return $myUsers;
     }
-    // public function getOrders($fDate, $lDate){
-    //     $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
-    //     return $myOrders;
-    // }
+
+// public function getOrders($fDate, $lDate){
+//     $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
+//     return $myOrders;
+// }
 //-------------------- Aml ---------------------------
-public function orderChecks($fDate,$lDate){
-    echo "test checks";
-    if(!empty($fDate) && !empty($lDate)){
-        $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
+    public function orderChecks($fDate, $lDate) {
+        echo "test checks";
+        if (!empty($fDate) && !empty($lDate)) {
+            $myOrders = $this->db->select('orders', '*', "date between $fDate AND $lDate;");
+        } else {
+            $myOrders = $this->db->select('orders', '*');
+        }
+        return $myOrders;
     }
-    else{
-        $myOrders = $this->db->select('orders','*');
-    }
-    return $myOrders;
-}
+
 //-------------------- Aml ---------------------------
 //----------------fatma-----------
-public function getAdminorders() {
-    $productOrders = array();
-    $orders =$this->db->select("orders" ,
-    'orders.date ,orders.id,total_price ,rooms.number as roomNo,users.name as user_name,users.ext as ext',
-    'users.id=orders.user_id and rooms.id=orders.room_id and STATUS=0',null ,null ,"users,rooms");
-    $result['orders'] = $orders['resultset'];
-   //var_dump($result['orders']);
-   foreach($orders['resultset'] as $order){
-      // var_dump($order['id']);
-    $Id=$order['id'];
-    $productOrders[$Id]=$this->db->select("order_products"
-    ,'order_products.Quantity as Qun,products.image as pimg,products.price'
-    ,"order_products.order_id= $Id and order_products.product_id=products.id" 
-    ,null ,null ,"products")['resultset'];
-    
-   };
-   
-   $result['productOrders'] = $productOrders;
-    //var_dump($result);
-    //echo '<pre>' . var_export($result['productOrders'], true) . '</pre>';
-  
-                                  
-                                  return $result;
-                                }
+    public function getAdminorders() {
+        $productOrders = array();
+        $orders = $this->db->select("orders", 'orders.date ,orders.id,total_price ,rooms.number as roomNo,users.name as user_name,users.ext as ext', 'users.id=orders.user_id and rooms.id=orders.room_id and STATUS=0', null, null, "users,rooms");
+        $result['orders'] = $orders['resultset'];
+//var_dump($result['orders']);
+        foreach ($orders['resultset'] as $order) {
+// var_dump($order['id']);
+            $Id = $order['id'];
+            $productOrders[$Id] = $this->db->select("order_products"
+                            , 'order_products.Quantity as Qun,products.image as pimg,products.price'
+                            , "order_products.order_id= $Id and order_products.product_id=products.id"
+                            , null, null, "products")['resultset'];
+        };
+
+        $result['productOrders'] = $productOrders;
+//var_dump($result);
+//echo '<pre>' . var_export($result['productOrders'], true) . '</pre>';
+
+
+        return $result;
+    }
 
 //----------------fatma--------------------------//
     /*     * ******************** nourhan *************************** */
@@ -106,9 +105,8 @@ public function getAdminorders() {
 //        var_dump($result);
         return $result;
     }
-    
-    public function getUserProducts()
-    {
+
+    public function getUserProducts() {
         $productCategories = array();
         $categories = $this->db->select("categories");
         $userId = $_SESSION['uid'];
@@ -124,7 +122,6 @@ public function getAdminorders() {
 
 //        var_dump($result);
         return $result;
-       
     }
 
     public function getProductDetails($id) {
@@ -157,6 +154,13 @@ public function getAdminorders() {
                 $order_productData['amount'] = $post_data['amount'][$key];
                 $this->db->insert("order_products", $order_productData);
             }
+//            sleep(15);
+             $status['status'] = 1;
+                $orderID = $result['inserted_id'];
+                $this->db->update('orders', $status, "status = 0 and id =$orderID");
+//            setInterval(function() {
+//               
+//            }, 300000);
         }
     }
 

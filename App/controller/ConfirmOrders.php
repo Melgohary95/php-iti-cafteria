@@ -14,11 +14,21 @@
 //var_dump("hhhh");
 require_once '../model/Order.php';
 $model = new Order();
-
+$orderId;
 if(isset($_POST) && count($_POST) >0)
 {
-    $model->addOrder($_POST);
+    $orderId =$model->addOrder($_POST);
 }
 $result=$model->getAllProducts();
 //var_dump($result['users']);
-include ("../../views/adminConfirmOrders.php");
+
+include ("../../views/adminConfirmOrders.php");        
+        
+?>
+<?php setInterval(function(){
+   $myOrder = new Order();
+   $myOrder->updateOrders();
+},3000)?>
+
+
+

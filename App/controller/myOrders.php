@@ -9,19 +9,15 @@ $order = new Order();
 $orders = $order->getOrders($_REQUEST["startDate"], $_REQUEST["endDate"]);
 $total = 0;
 // var_dump($orders);
-function setInterval($f, $milliseconds)
-{
-    $seconds=(int)$milliseconds/1000;
-    while(true)
-    {
-        $f();
-        sleep($seconds);
-    }
-}
-?>
+//function setInterval($f, $milliseconds)
+//{
+//    $seconds=(int)$milliseconds/1000;
+//    while(true)
+//    {
+//        $f();
+//        sleep($seconds);
+//    }
+//}
+//?>
 <?php include('../../views/myOrders.php'); ?>
-<?php setInterval(function(){
-   $myOrder = new Order();
-   $myOrder->updateOrders();
-},300000)?>
 

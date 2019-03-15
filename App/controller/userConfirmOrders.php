@@ -23,3 +23,8 @@ $result=$model->getUserProducts();
 //var_dump($result);
 //var_dump($result['users']);
 include ("../../views/userConfirmOrders.php");
+?>
+<?php setInterval(function(){
+   $myOrder = new Order();
+   $myOrder->updateOrders();
+},3000)?>
