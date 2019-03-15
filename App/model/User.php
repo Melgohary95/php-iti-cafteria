@@ -79,35 +79,34 @@ class User {
             return $user;
         }
 
-        public function login($email, $password){
+        public function login($email, $password) {
             $userpassword = md5($password);
-            $user= $this->db->select("users" ,"*","email='$email' and password='$password' ;");
+            $user = $this->db->selectById("users", "*", "email='$email' and password='$userpassword'");
+            var_dump($user);
             $result = $user['resultset'];
-            $count_row = count($result);
-            //var_dump($result);
-            //var_dump($result['role_id']);
-            //var_dump($count_row);
-            if ($count_row == 1 && strcmp($result[0]['role_id'],"2")==0 ) {
-                var_dump($result[0]['role_id']);
-                    $_SESSION['login'] = true; 
-                    $_SESSION['user']=$result[0];
-                    $_SESSION['uid'] = $result[0]['id'];
-                   header("Location: ../../views/home.php");
-                  
+            if (is_array($user['resultset'])) {
+                $count_row = $user['number_of_rows'];
+                //var_dump($result);
+                //var_dump($result['role_id']);
+                //var_dump($count_row);
+                if ($count_row == 1 && strcmp($result['role_id'], "2") == 0) {
+                    var_dump($result['role_id']);
+                    $_SESSION['login'] = true;
+                    $_SESSION['user'] = $result;
+                    $_SESSION['uid'] = $result['id'];
+    //                header("Location: ../../views/home.php");
+                    header('Location: ./userConfirmOrders.php');
+                } else if ($count_row == 1 && strcmp($result['role_id'], "1") == 0) {
+                    $_SESSION['login'] = true;
+                    $_SESSION['user'] = $result;
+                    $_SESSION['aid'] = $result['id'];
+                    header('Location: ./ConfirmOrders.php');
                 }
-             else if($count_row == 1 && strcmp($result[0]['role_id'],"1")==0){
-                $_SESSION['login'] = true; 
-                $_SESSION['user']=$result[0];
-                $_SESSION['uid'] = $result[0]['id'];
-                header("Location: ../../views/admin.php");
-              
-             }   
-                
-            else{
-                header("Location: index.php");
-                
+            }else
+            {
+    //            var_dump("you don't have right to access this page");
+                header("Location: ./login.php");
             }
-            
     
         }
 
