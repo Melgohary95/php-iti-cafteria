@@ -1,9 +1,18 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c0d94bd305256e0232d6fa0b0e6ffe843d24062d
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://www.netbeans.org/ns/project/1">
     <type>org.netbeans.modules.php.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
+<<<<<<< HEAD
+            <name>php-iti-cafteria-master</name>
+        </data>
+    </configuration>
+</project>
+=======
             <name>php-iti-project-nour</name>
         </data>
     </configuration>
@@ -19,3 +28,4 @@
     </configuration>
 </project>
 >>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
+>>>>>>> c0d94bd305256e0232d6fa0b0e6ffe843d24062d

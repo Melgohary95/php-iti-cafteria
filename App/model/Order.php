@@ -52,6 +52,7 @@ class Order {
     // }
 //-------------------- Aml ---------------------------
 public function orderChecks($fDate,$lDate){
+    echo "test checks";
     if(!empty($fDate) && !empty($lDate)){
         $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
     }
@@ -104,6 +105,26 @@ public function getAdminorders() {
 
 //        var_dump($result);
         return $result;
+    }
+    
+    public function getUserProducts()
+    {
+        $productCategories = array();
+        $categories = $this->db->select("categories");
+        $userId = $_SESSION['uid'];
+        $result['user'] = $this->db->selectById("users", '*', "id=$userId")['resultset'];
+        $result['rooms'] = $this->db->select("rooms", "*")['resultset'];
+
+        $result['categories'] = $categories['resultset'];
+        foreach ($categories['resultset'] as $category) {
+            $categoryId = $category['id'];
+            $productCategories[$categoryId] = $this->db->select("products", '*', "category_id=$categoryId and availability=1", "`products`.`id`DESC")['resultset'];
+        }
+        $result['productCategories'] = $productCategories;
+
+//        var_dump($result);
+        return $result;
+       
     }
 
     public function getProductDetails($id) {

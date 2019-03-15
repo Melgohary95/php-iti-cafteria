@@ -8,7 +8,7 @@ require '../model/Order.php';
 $order = new Order();
 $orders = $order->getOrders($_REQUEST["startDate"], $_REQUEST["endDate"]);
 $total = 0;
-var_dump($orders);
+// var_dump($orders);
 function setInterval($f, $milliseconds)
 {
     $seconds=(int)$milliseconds/1000;
