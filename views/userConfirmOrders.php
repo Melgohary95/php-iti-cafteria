@@ -59,11 +59,15 @@
                             <td class="total-header">Room</td>
                             <td class="half-width">
                                 <select class="form-control" required id="roomOfUser" name="room_id">
-                                    <option  value="" disabled="" selected="">Add Room</option>
+                                    <!--<option  value="" disabled="" selected="">Add Room</option>-->
 
                                     <?php if (count($result['rooms']) > 0): ?>
                                         <?php foreach ($result['rooms'] as $room): ?>
-                                            <option  value="<?= $room['id'] ?>" ><?= $room['number'] ?></option>
+                                         <?php if($room['id'] == $result['user']['room_id']):?>
+                                         <option  value="<?= $room['id'] ?>" selected=""><?= $room['number'] ?></option>
+                                         <?php else: ?>
+                                         <option  value="<?= $room['id'] ?>" ><?= $room['number'] ?></option>
+                                           <?php endif ?>
                                         <?php endforeach; ?>
                                     <?php endif; ?>
                                 </select>
@@ -128,9 +132,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-5">
+                           <div class="row mb-5">
                             <div class="col-md-12">
-                                <select class="form-control" required id="orderUser" name="user_id">
+                                <input type="hidden" name="user_id" value="<?php echo $result['user']['id'] ?>" />
+<!--                                <select class="form-control" required id="orderUser" name="user_id">
                                     <option value="" disabled="" selected="">Add User</option>
 
                                     <?php if (count($result['users']) > 0): ?>
@@ -138,7 +143,7 @@
                                             <option  value="<?= $user['id'] ?>" ><?= $user['name'] ?></option>
                                         <?php endforeach; ?>
                                     <?php endif; ?>
-                                </select>
+                                </select>-->
                             </div>
                         </div>
                         <div class="seacrch_clients"></div>

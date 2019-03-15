@@ -87,14 +87,14 @@
         <td><?php 
         if($value["status"] == 0){
           $newOrder = new Order(); 
-          echo '<button type=submit onclick = '<?php "$newOrder->cancelOrders($value[id])"?>'>';
+          echo "<button type=submit onclick = '".$newOrder->cancelOrders($value[id]).">'>'";
           echo '<a href="./myOrders.php">cancel</a>';
           echo '</button>';
         }
         ?>
         </td>
         </tr>
-      <?php }?>
+    <?php // }?>
       <tr>
         <td>
           <!-- second section  -->
