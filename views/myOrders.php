@@ -37,12 +37,20 @@
         <td>Amount</td>
         <td>Action</td>
       </tr>
+<<<<<<< HEAD
+=======
+      <?php foreach ($orders["resultset"] as $value){?>
+>>>>>>> c0d94bd305256e0232d6fa0b0e6ffe843d24062d
       <tr>
         <td>
           <!-- first section  -->
             <div class="ac">
               <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
+<<<<<<< HEAD
               <label id ="firstRow" class="ac-label" for="ac-1">amal moustafa</label>
+=======
+              <label id ="firstRow" class="ac-label" for="ac-1"><?php echo $value["date"]?></label>
+>>>>>>> c0d94bd305256e0232d6fa0b0e6ffe843d24062d
 
               <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
                   <div class="ac-sub">
@@ -123,6 +131,12 @@
         <td></td>
       </tr>
      
+        <td><?php if($value["status"] == 0){ ?>
+            <a href="./myOrders.php" onclick='<?php $order->cancelOrders($value["id"])?>'>cancel</a>
+        <?php }?>
+        </td>
+        </tr>
+      <?php }?>
     </tbody>
   </table>
 </div>

@@ -37,6 +37,15 @@ class Order {
         return $myOrders;
     }
 
+    public function updateOrders(){
+        $status['status'] = 1;
+        $this->db->update('orders',$status,'status = 0');
+    }
+
+    public function getUsers(){
+        $myUsers = $this->db->select('users','*');
+        return $myUsers;
+    }
     // public function getOrders($fDate, $lDate){
     //     $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
     //     return $myOrders;

@@ -21,10 +21,10 @@
   <div class="form-row align-items-center">
       <div style="padding-left: 19px" class="col-auto my-1">
         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">user1</option>
-          <option value="2">user2</option>
-          <option value="3">user3</option>
+          <option selected = "selected">Choose...</option>
+          <?php foreach ($users["resultset"] as $value) { ?>
+            <option value="1" onchange = "checks($value['id'],$value['name']);">"><?php echo $value["name"]?></option>        
+          <?php }?>
         </select>
       </div>
 </div>
@@ -39,15 +39,15 @@
   <table style="margin-top:0px" class="table">
     <tbody>
       <tr>
-        <td>Names</td>
+        <td>Name</td>
         <td>Total Amount</td>
       </tr>
-      
+    <?php foreach ($orders as $value) { ?>
       <tr>
         <td>
           <div class="ac">
           <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
-          <label class="ac-label" for="ac-1">Amal Moustafa</label>
+          <label class="ac-label" for="ac-1"><?php var_dump($_POST)?></label>
 
           <article class="ac-text">
             
@@ -60,8 +60,8 @@
                     <table style="width: 100%;">
                       
                       <tr>
-                        <td>19-04-1994</td>
-                        <td>55 EGP</td>
+                        <td><?php echo $value['date']?></td>
+                        <td><?php echo $value['']?></td>
                       </tr>
                     </table>
                   </div>
@@ -90,6 +90,7 @@
         </td>
         <td>20</td>
       </tr>
+    <?php }?>
      
     </tbody>
   </table>

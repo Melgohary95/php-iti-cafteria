@@ -8,10 +8,14 @@ require '../model/Order.php';
 $order = new Order();
 //$orders = $order->orderChecks();
 
-$orders = $order->orderChecks($_REQUEST["startDate"], $_REQUEST["endDate"]);
-
-//var_dump($orders);
-
+$checks = $order->orderChecks($_REQUEST["startDate"], $_REQUEST["endDate"]);
+$users = $order->getUsers();
+$orders = $order->getOrders($_REQUEST["startDate"], $_REQUEST["endDate"]);
+// var_dump($checks);
+function setEnv($id,$name){
+    $_ENV['id'] = $id;
+    $_ENV['name'] = $name;
+}
 
 ?>
 <?php include('../../views/adminChecks.php') ?>

@@ -57,6 +57,7 @@ div.scrolling-wrapper {
 
   .head{
     margin-top: 10px;
+
 }
 
 
@@ -80,10 +81,6 @@ div.scrolling-wrapper {
     float:right;
     margin-right: 50px; 
 }
-/*.table{
-    margin-top: 150px;
-
-}*/
 .img{
     width: 50px;
     height: 50px;
@@ -974,11 +971,14 @@ div.scrolling-wrapper {
   .productsTable{
     margin-top: 20px;
     min-height:45vh; 
+
+
   }
 
   #ProductsTable{
     margin-top: 2px !important;
     height: 30px !important;
+
   }
 
   .addProBtn{
@@ -1023,12 +1023,14 @@ div.scrolling-wrapper {
 #editProductBtn{
   cursor: pointer;
 }
+
 /*******************************************/
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
 }
+
 
 
 #paggination{
@@ -1047,6 +1049,7 @@ input[type=number]::-webkit-outer-spin-button {
   border-left: 1px solid;
   padding: 0 9px;
 } */
+
 /*
 fatma new style*/
 .adminOrders{
