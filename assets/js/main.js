@@ -1,26 +1,43 @@
 let sendReq = ()=>{
     const catName = document.getElementById("newCategory").value;
     const categoriesList = document.getElementById("productCategory");
-    const xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        let catInfo= this.responseText.split("-");
-
-        let option = document.createElement("option");
-        let optionText = document.createTextNode(catInfo[1]);
-        option.appendChild(optionText);
-        option.value=catInfo[0];
-        categoriesList.appendChild(option);
-      }
-    };
-    if(catName.length > 0)
-    {
-    xmlhttp.open("GET", "../../core/addCtegory.php?cat=" + catName, true);
-    xmlhttp.send();
+    
+    if(catName.length > 0){
+$.ajax({
+    type: "GET",
+    url: '../../core/addCtegory.php',
+    data: {'cat': catName},
+    success: function(data){
+        alert(data);
     }
+});
 }
+    // const xmlhttp = new XMLHttpRequest();
+    // xmlhttp.onreadystatechange = function() {
+    //   if (this.readyState == 4 && this.status == 200) {
+    //     let catInfo= this.responseText.split("-");
+
+    //     let option = document.createElement("option");
+    //     let optionText = document.createTextNode(catInfo[1]);
+    //     option.appendChild(optionText);
+    //     option.value=catInfo[0];
+    //     categoriesList.appendChild(option);
+        
+    //   }
+    // };
+    // if(catName.length > 0)
+    // {
+    // xmlhttp.open("GET", "../../core/addCtegory.php?cat=" + catName, true);
+    // xmlhttp.send();
+    // }
+}
+
 var x = document.getElementById("edit");
-        x.style.display = "none";
+if(x)
+{
+    x.style.display = "none";
+}
+        
 
 let displayEdit=(id)=>{
         var productName = document.getElementById("nameEditInput").value;
@@ -63,6 +80,7 @@ let displayEdit=(id)=>{
       
 }
 
+
 let displayEdit2=(id)=>{
   var userName = document.getElementById("nameEditInput").value;
   var roomNo = document.getElementById("roomEditInput").value;
@@ -75,10 +93,12 @@ let displayEdit2=(id)=>{
   const xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
-  var productInfo= this.responseText.split("**");
+  var userInfo= this.responseText.split("**");
   document.getElementById("nameEditInput").value=userInfo[0];
   document.getElementById("roomEditInput").value=userInfo[1];
   document.getElementById("extEditInput").value=userInfo[2];
+  document.getElementById("userId").value=userInfo[3];
+  console.log(userInfo[3]);
   }
 };
 if(true)
@@ -92,7 +112,7 @@ xmlhttp.send();
     
   } else {
     //add image name length too
-    if(userName.length > 0  )
+    if(userName.length > 0 || roomNo.length >0 || ext.length>0 )
     {
       userName=userInfo[1];
     }else{
@@ -102,7 +122,6 @@ xmlhttp.send();
   }
 
 }
-
 
 let deleteRow=()=>{
   $('table').on('click',$(this), function(e){

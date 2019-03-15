@@ -10,7 +10,7 @@ $q = $_REQUEST["cat"];
 $inputs['name'] = "$q";
   
 $result = $db->insert("categories",$inputs);
-$id = $db->select("categories","*",null,"id DESC",1);
+$id = $db->$db->select("categories","*",null,"id DESC",1);
 
 echo $result['result'] === true ?  $id["resultset"]["id"]."-".$id["resultset"]["name"]: "Null" ;
 

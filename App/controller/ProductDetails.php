@@ -4,6 +4,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+session_start();
 require_once '../model/Order.php';
 //var_dump("ggggg");
 if (isset($_GET['id'])) {

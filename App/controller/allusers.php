@@ -26,9 +26,11 @@ if(count($_POST) > 0)
     $ext= trim($_POST['extEditInput']);
     $inputs['ext'] = $ext;
   }
+   // var_dump($inputs);
     var_dump($_POST['userId']);
-    $p->db->update("users",$inputs,"id={$_POST["userId"]}");
-    //header('Location: '.$_SERVER['PHP_SELF']);
+    $uid=$_POST['userId'];
+    $p->db->update("users",$inputs,"id='$uid';");
+    header('Location: '.$_SERVER['PHP_SELF']);
     
 }
 
@@ -44,4 +46,5 @@ if(count($_GET) > 0)
 ?>
 
 <?php require('../../views/adminAllUsers.php') ?>
+
 

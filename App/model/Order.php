@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,6 +20,7 @@ class Order {
 
     public function __construct() {
         $this->db = new Database();
+        $_SESSION['err'] ="";
     }
     
     public function cancelOrders($mid){
@@ -165,13 +165,12 @@ return $myOrders;
                 $order_productData['amount'] = $post_data['amount'][$key];
                 $this->db->insert("order_products", $order_productData);
             }
-//            sleep(15);
-             $status['status'] = 1;
-                $orderID = $result['inserted_id'];
-                $this->db->update('orders', $status, "status = 0 and id =$orderID");
-//            setInterval(function() {
-//               
-//            }, 300000);
+            $_SESSION['err'] ="";
+            $_SESSION['success'] ="your order has been saved sucessfully !!";
+        }else
+        {
+            $_SESSION['err'] ="you must order products";
+             $_SESSION['success']="";
         }
     }
 

@@ -1,3 +1,11 @@
+body{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #545454;
+    overflow-x: hidden;
+    background-color:#f2f2f2;
+}
 
 #submitLogin{
     background-color:#D00000;
@@ -94,6 +102,7 @@ div.scrolling-wrapper {
 
 /* ********************************  Aml ****************************** */
 
+
 .ac-label {
     font-weight: 700;
     position: relative;
@@ -172,6 +181,219 @@ div.scrolling-wrapper {
   .ac-sub-text {
     padding: 0 1em 0 2em;
   }
+  
+  
+  .slider--container {
+	position: relative; /* "relative", so that h1 and images can be set absolutely */
+	    height: 97vh;
+    width: 99vw;
+	margin: 0 auto;
+	overflow: hidden;
+	border-radius: .125rem;
+	box-shadow: 0 0 .1rem .125rem rgba(0, 0, 0, 0.25);
+}
+
+.slider--container .slider--heading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	padding: 1rem;
+	z-index: 99;
+	font: 300 1.25rem/1.25 Verdana, sans-serif;
+	text-align: center;
+	background-color: #808080b3;
+	color: rgba(0, 0, 0, 0.5);
+	transform: translate3d(-50%, -50%, 0);
+}
+
+
+.slider--container .slider--heading h1 {
+	font: 300 1.25rem/1.25 Verdana, sans-serif;
+	text-transform: uppercase;
+	color:black;
+    font-weight: bold;
+}
+	/* Responsive styles for the heading */
+	/* ===== == = === 30em (480px) === = == ===== */
+	@media only screen and (min-width : 30em) {
+		.slider--heading h1 {font-size: 1.5rem;}
+	}
+	/* ===== == = === 48em (768px) === = == ===== */
+	@media only screen and (min-width : 48em) {
+		.slider--heading h1 {font-size: 1.75rem;}
+	}
+
+	/* Responsive styles for the button */
+	/* ===== == = === 30em (480px) === = == ===== */
+	@media only screen and (min-width : 30em) {
+		.btn {
+			font-size: 1rem;
+		}
+	}
+	/* ===== == = === 48em (768px) === = == ===== */
+	@media only screen and (min-width : 48em) {
+		.btn {
+			font-size: 1.25rem;
+		}
+	}
+.slider--container .slider--image {
+	position: absolute;
+	z-index: 1;
+	left:0;
+	top:0;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	animation: 45s ease-in-out infinite;
+} 
+ /* Name of animations and selection of images */
+.slider--container .slider--image:nth-of-type(1) {
+	animation-name: slide-01;
+}
+.slider--container .slider--image:nth-of-type(2) {
+	animation-name: slide-02;
+}
+.slider--container .slider--image:nth-of-type(3) {
+	animation-name: slide-03;
+}
+
+/* Images are overlaid and visible or invisible due to different transparency */
+/* Moving the images with transform: scale & translate */
+	/* Styles for webkit browsers */
+@-webkit-keyframes slide-01 {
+	0%  { opacity:1; -webkit-transform: scale(1.4) translate(0, 0);}
+	16%  {opacity:1; -webkit-transform: scale(1.2) translate(-20px, -10px);}
+	33%  {opacity:0; -webkit-transform: scale(1.4) translate(0, 0);}
+	50%  {opacity:0;}
+	67%  {opacity:0;}
+	84%  {opacity:0;}
+	100%  {opacity:1; -webkit-transform: scale(1.4) translate(0, 0);}
+}
+@-webkit-keyframes slide-02 {
+	0%  { opacity:0;}
+	16%  {opacity:0; -webkit-transform: scale(1.2) translate(-20px, -10px);}
+	33%  {opacity:1; -webkit-transform: scale(1.4) translate(0, 0);}
+	50%  {opacity:1; -webkit-transform: scale(1.2) translate(-20px, 10px);}
+	67%  {opacity:0; -webkit-transform: scale(1.4) translate(0, 0);}
+	84%  {opacity:0;}
+	100%  {opacity:0;}
+}
+@-webkit-keyframes slide-03 {
+	0%  { opacity:0;}
+	16%  {opacity:0;}
+	33%  {opacity:0;}
+	50%  {opacity:0; -webkit-transform: scale(1.4) translate(0, 0);}
+	67%  {opacity:1; -webkit-transform: scale(1.4) translate(-20px, 10px);}
+	84%  {opacity:1; -webkit-transform: scale(1.2) translate(20px, -10px);}
+	100%  {opacity:0; -webkit-transform: scale(1.4) translate(0, 0);}
+}
+
+	/* Styles for all other browsers */
+@keyframes slide-01 {
+	0%  { opacity:1; transform: scale(1.4) translate(0, 0);}
+	16%  {opacity:1; transform: scale(1.2) translate(-20px, -10px);}
+	33%  {opacity:0; transform: scale(1.4) translate(0, 0);}
+	50%  {opacity:0;}
+	67%  {opacity:0;}
+	84%  {opacity:0;}
+	100%  {opacity:1; transform: scale(1.4) translate(0, 0);}
+}
+@keyframes slide-02 {
+	0%  { opacity:0;}
+	16%  {opacity:0; transform: scale(1.2) translate(-20px, -10px);}
+	33%  {opacity:1; transform: scale(1.4) translate(0, 0);}
+	50%  {opacity:1; transform: scale(1.2) translate(-20px, 10px);}
+	67%  {opacity:0; transform: scale(1.4) translate(0, 0);}
+	84%  {opacity:0;}
+	100%  {opacity:0;}
+}
+@keyframes slide-03 {
+	0%  { opacity:0;}
+	16%  {opacity:0;}
+	33%  {opacity:0;}
+	50%  {opacity:0; transform: scale(1.4) translate(0, 0);}
+	67%  {opacity:1; transform: scale(1.4) translate(-20px, 10px);}
+	84%  {opacity:1; transform: scale(1.2) translate(20px, -10px);}
+	100%  {opacity:0; transform: scale(1.4) translate(0, 0);}
+}
+  
+  .slider--container a {
+    text-decoration: none;
+    color:#f2f2f2;
+}
+ .slider--container a:hover {
+  text-decoration: underline;
+  color:green;
+}
+
+/********************** login page style ***************************/
+
+.form-bk{
+    background-color: #808080b3;
+    margin: auto;
+    width: 40%;
+    margin-top: 150px;
+    padding-bottom: 60px;
+    border-radius: 12px;
+}
+.form-bk .login-form {
+    margin: auto;
+    width: 50%;
+    margin-top: 150px;
+    padding-top: 40px;
+}
+
+
+/************** forget password style ***********/
+
+.forgetpass-form h1{
+    text-align: center;
+    padding-top: 26px;
+    color: #005000;
+}
+.forgetpass-form tr{
+    text-transform: capitalize;
+    font-size: 25px;
+    color: #f2f2f2;   
+}
+.forgetpass-form table tr td .btnSubmit{
+    padding: 10px;
+    margin-top: 20px;
+    width: 100px;
+    border: navajowhite;
+    border-radius: 6px;
+    background-color: #D00000;
+    color: whitesmoke;
+    font-size: 15px;
+    font-weight: bold;
+}
+.forgetpass-form table tr td .forgetpass-btn{
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    
+}
+/******************* checks style *******************/
+
+.form-bk .container h1{
+    text-align: center;
+    padding-top: 26px;
+    color: #005000;
+    text-transform: capitalize;
+    font-size: 40px;
+}
+
+
+/******************* end Amal *******************/
+  
 /* nourhan */
 
 /******** nourhan ***************/
@@ -971,7 +1193,7 @@ div.scrolling-wrapper {
   .productsTable{
     margin-top: 20px;
     min-height:45vh; 
-
+    background-color: #f1f1f1;
 
   }
 

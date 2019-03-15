@@ -1,4 +1,5 @@
 <?php
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
@@ -6,14 +7,8 @@ ini_set('display_startup_errors', TRUE);
 require '../model/product.php'; 
 
 $p = new Product();
-
-
-
-
-
-
-
-$target_dir = "/var/www/html/phpProject/assets/images/";
+$target_dir = "/var/www/php-iti-cafteria-master-complete/assets/images/";
+$target_dir = $_SERVER['DOCUMENT_ROOT'];
 if(isset($_FILES["productImage"])){
 $target_file = $target_dir . basename($_FILES["productImage"]["name"]);
 
@@ -79,7 +74,11 @@ if(count($_POST) > 0)
     $inputs['image'] = "../../assets/images/".$img;
   }
   if ($uploadOk == 1){
-    $p->db->insert("products",$inputs);
+    $result =$p->db->insert("products",$inputs);
+    if($result['number_of_rows'])
+    {
+        header('Location: allProducts.php');
+    }
   }
   
 }

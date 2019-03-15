@@ -2,29 +2,33 @@
 
 <?php include('../../views/components/header.php') ?>
 <?php include('../../views/components/navBar.php') ?>
-
+  <head>
+    
+     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+</head>
+<body class="body">
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+				<div class="login100-form-title addpro" >
 					<span class="login100-form-title-1">
 						Add Product
 					</span>
 				</div>
 
-<form method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data" class="formbk" >
 
-  <div class="form-group">
-    <label for="productName">Product</label>
+  <div >
+    <label for="productName" class="form">Product</label>
     <input type="text" class="form-control" id="productName" name="productName" required>
   </div>
 	<div class="form-group">
-    <label for="productPrice">Price</label>
-    <input type="number" class="form-control" id="productPrice" name="productPrice" required>
+    <label for="productPrice" class="form">Price</label>
+    <input type="text" class="form-control" id="productPrice" name="productPrice" required>
   </div>
   <div class="form-group row">
 	<div class="col-sm-8">
-    <label for="productCategory">Category</label>
+    <label for="productCategory" class="form">Category</label>
     <select class="form-control" id="productCategory" name="productCategory" required>
 		<option value="" selected disabled hidden>Choose category</option>
     
@@ -45,7 +49,7 @@
 		</div>
 		<div class="col-sm-3 mt-4">
 
-      <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" class="btn btn-light form" data-toggle="modal" data-target="#exampleModal">
       Add category
       </button>
 
@@ -64,8 +68,8 @@
             <input type="text" class="form-control-file" id="newCategory" name="newCategory">
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="sendReq()" data-dismiss="modal">Save Category</button>
+              <button type="button" class="btn btn-secondary form" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary form" onclick="sendReq()" data-dismiss="modal">Save Category</button>
             </div>
           </div>
         </div>
@@ -76,12 +80,12 @@
   </div>
   
   <div class="form-group col-sm-6 row"> 
-    <label for="productImage">Product Image</label>
-    <input type="file" class="form-control-file" id="productImage" name="productImage" required>
+    <label for="productImage" class="form">Product Image</label>
+    <input type="file" class="form-control-file form" id="productImage" name="productImage" required>
   </div>
 	<div class="mx-auto text-center">
-	<button type="submit" class="btn btn-primary" name="submit">Save</button>
-  <button type="reset" class="btn btn-light">Reset</button>
+	<button type="submit" class="btn btn-primary form" name="submit">Save</button>
+  <button type="reset" class="btn btn-light form">Reset</button>
 	</div>
 </form>
 			</div>
@@ -89,6 +93,6 @@
 	</div>
 
 
-
+</body>
 <?php include('../../views/components/footer.php') ?>
 

@@ -1,35 +1,35 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/phpProject/views/admin.php">ITI Cafeteria</a>
+<nav style="background-color: #ffffffe6;" class="navbar navbar-expand-lg navbar-light ">
+  <a class="navbar-brand iti" href="../../App/controller/ConfirmOrders.php">ITI Cafeteria</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto ul">
       <li class="nav-item">
-        <a class="nav-link" href="/phpProject/views/admin.php">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../App/controller/ConfirmOrders.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/phpProject/App/controller/allProducts.php">Products</a>
+        <a class="nav-link" href="../../App/controller/allProducts.php">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/phpProject/views/adminAllUsers.php">Users</a>
+        <a class="nav-link" href="../../App/controller/allusers.php">Users</a>
       </li>
       <!-- <li class="nav-item">
         <a class="nav-link" href="#">Manual Order</a>
       </li> -->
       <li class="nav-item">
-        <a class="nav-link" href="/phpProject/views/adminChecks.php">Checks</a>
+          <a class="nav-link" href="../../App/controller/checks.php">Checks</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/php-iti-cafteria/App/controller/orders.php">Orders</a>
+          <a class="nav-link" href="../../App/controller/orders.php">Orders</a>
       </li>
       
 
     </ul>
     <div class="my-2 my-lg-0">
         <a href="#"><img src="../../assets/images/user.png" width="35" class="mr-2"/></a>
-        <a href="#">Admin</a>
-        <a href="#" class="ml-3">Log out</a>
+       <?php echo $_SESSION['adminUser']['name'] ?>
+        <a href="../../App/controller/logout.php" class="ml-3 log">Log out</a>
     </div>
   </div>
 </nav>

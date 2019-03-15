@@ -1,9 +1,17 @@
 <?php include('../../views/components/header.php') ?>
 <?php include('../../views/components/navBar.php') ?>
 
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+</head>
+
+<body background="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2012/10/Food.jpg">
+    
+<div class="form-bk" style="width: 80%;">
 <div class="container">
 
-<h2>checks</h2>
+<h1>checks</h1>
 
 <form>
 <div class="row">
@@ -23,10 +31,10 @@
 <div class="row">
   <div class="form-row align-items-center">
       <div style="padding-left: 19px" class="col-auto my-1">
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" onchange="checks($value['id'],$value['name'])">
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" >
           <option selected>Choose...</option>
           <?php foreach ($users["resultset"] as $value) { ?>
-            <option value="1"><?php echo $value["name"]?></option>        
+            <option value="<?php echo $value['id'] ?>"><?php echo $value["name"]?></option>        
           <?php }?>
         </select>
       </div>
@@ -53,7 +61,7 @@
         <td>
           <div class="ac">
           <input class="ac-input" id="ac-<?php echo $val?>" name="ac-<?php echo $val?>" type="checkbox" />
-          <label class="ac-label" for="ac-<?php echo $val?>"><?php echo $_ENV['name'] ?></label>
+          <!--<label class="ac-label" for="ac-<?php echo $val?>"><?php echo $_GET['selectValue'] ?></label>-->
           <?php $val = $val + 1 ?>
           <article class="ac-text">
             
@@ -108,34 +116,8 @@
   </table>
 </div>
 <!-- ============================================================================== -->
-
-
-
-
-<!-- start pagination  -->
-<nav aria-label="Page navigation example">
-<ul class="pagination pagination-circle pg-blue">
-  <li class="page-item disabled"><a class="page-link">First</a></li>
-  <li class="page-item disabled">
-    <a class="page-link" aria-label="Previous">
-      <span aria-hidden="true">&laquo;</span>
-      <span class="sr-only">Previous</span>
-    </a>
-  </li>
-  <li class="page-item active"><a class="page-link">1</a></li>
-  <li class="page-item"><a class="page-link">2</a></li>
-  <li class="page-item"><a class="page-link">3</a></li>
-  <li class="page-item"><a class="page-link">4</a></li>
-  <li class="page-item"><a class="page-link">5</a></li>
-  <li class="page-item">
-    <a class="page-link" aria-label="Next">
-      <span aria-hidden="true">&raquo;</span>
-      <span class="sr-only">Next</span>
-    </a>
-  </li>
-  <li class="page-item"><a class="page-link">Last</a></li>
-</ul>
-</nav>
-<!-- end pagination -->
+</div>
+</body>
+</html>
 
 <?php include('../../views/components/footer.php') ?>

@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 require '../model/Order.php'; 
 $model = new Order();
 $result=$model->getAdminorders();

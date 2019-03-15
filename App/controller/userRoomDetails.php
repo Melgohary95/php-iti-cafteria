@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once '../model/Order.php';
 if (isset($_GET['selectValue'])) {
     $model = new Order();

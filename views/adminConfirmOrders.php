@@ -1,44 +1,28 @@
 <?php include('../../views/components/header.php') ?>
+<?php include('../../views/components/navBar.php') ?>
 <div class="container-fluid">
     <div class="row main-header">
-        <!-- Header Navbar: style can be found in header.less -->
-        <div class="col-md-4 navbar" >
-            <ul class="nav tab-bar-icons">
-                <li>
-                    <a href="/phpProject/home.php">
-                        <span class="menu-text">Home</span>
-                    </a>
-                </li> 
-                <li class="flat-box waves-effect waves-block">
-                    <a href="/phpProject/myOrders.php">
-                        <span class="menu-text"> My Orders </span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-5">
-        </div>
-        <div class="col-md-3">
-            <ul class="nav navbar-nav navbar-right user">
-                <li class="dropdown navbar-user">
-
-                    <a href="javascript:;" class="dropdown-toggle profile-name" data-toggle="dropdown" aria-expanded="false">
-                        <img src="images/14690942_936478356496967_3208200680112630503_n.jpg" alt=""/>
-                        <span class="hidden-xs"> Nourhan </span>
-                        <b class="caret"></b>
-                    </a>
-
-                </li>
-            </ul>
-            <div class="clearfix"></div>
-
-        </div>
+        <?php if (isset($_SESSION['err']) && $_SESSION['err'] != ""): ?>
+            <?php $err = $_SESSION['err']; ?>
+            <?php echo "<div class='alert alert-danger mt-3'> $err </div>" ?>
+         <?php unset($_SESSION['err']) ?>
+        <?php endif; ?>
+            <?php if (isset($_SESSION['success']) && $_SESSION['success'] != ""): ?>
+            <?php $sucess = $_SESSION['success']; ?>
+            <?php echo "<div class='alert alert-success mt-3'> $sucess </div>" ?>
+        <?php $_SESSION['success'] =""; ?>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['userErr']) && $_SESSION['userErr'] != ""): ?>
+            <?php $userErr = $_SESSION['userErr']; ?>
+            <?php echo "<div class='alert alert-danger mt-3'> $userErr </div>" ?>
+        <?php unset($_SESSION['success']) ?>
+        <?php endif; ?>
     </div>
     <form method="POST">
         <div class="row">
             <div class="col-md-5 invoice">
                 <div class="order"> 
-                    <h3 class="order-item-header"> Order Items </h3>
+                    <h3 class="order-item-header item"> Order Items </h3>
                     <table  class="table order_products_table" >
                         <tbody>
 
@@ -130,7 +114,7 @@
                         </div>
                         <div class="row mb-5">
                             <div class="col-md-12">
-                                <select class="form-control" required id="orderUser" name="user_id">
+                                <select class="form-control" id="orderUser" name="user_id">
                                     <option value="" disabled="" selected="">Add User</option>
 
                                     <?php if (count($result['users']) > 0): ?>
@@ -148,6 +132,7 @@
                                 <!--<div class="orginal-search">-->
                                 <?php $count = 0; ?>
                                 <?php foreach ($result['productCategories'] as $productcatgory): ?>
+                                 <?php if (is_array($productcatgory)): ?>
                                     <?php foreach ($productcatgory as $productcatgorie): ?>
                                         <?php $count++; ?>
 
@@ -173,6 +158,7 @@
 
                                             </div>
                                         <?php endforeach; ?>
+                                            <?php endif; ?>
                                     <?php endforeach; ?>
 
                                 </div>

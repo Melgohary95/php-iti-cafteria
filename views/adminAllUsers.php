@@ -8,7 +8,7 @@
         <h1>All Users</h1>
       </div>
       <div class="col-md-6 addProBtn">
-        <a class="btn btn-danger " href="/php-iti-cafteria/App/controller/addUser.php">Add User</a>
+        <a class="btn btn-danger " href="../../App/controller/addUser.php">Add User</a>
       </div>
       <div id="edit">
         <ul id="editForm">
@@ -28,15 +28,30 @@
                     <label>
                         Room
                     </label>
-                    <input type="number" id="roomEditInput" class="form-control"  name="roomEditInput" required>
+                    <select class="form-control" id="roomEditInput" name="roomEditInput" >
+		<option value="" selected disabled hidden>Choose Room</option>
+    
+    
+    <?php 
+    $rooms = $p->db->select("rooms"); 
+    if(count($rooms)>2){
+          array_splice($rooms,0,2);
+        foreach($rooms['resultset'] as $key =>$room)
+        { ?>
+
+      <option value=<?php echo $room[0] ?>><?php echo $room[1] ?></option>
+
+        <?php }}?>
+        </select>
                 </li>
                 </div>
+
                 <div class="col-5 mt-2">
                 <li class="editField">
                     <label>
                         Ext
                     </label>
-                    <input type="number" id="extEditInput" class="form-control"  name="extEditInput" required>
+                    <input type="text" id="extEditInput" class="form-control"  name="extEditInput" required>
                 </li>
                 </div>
                
@@ -50,7 +65,7 @@
                 </div> -->
                 <div class="col-5 mt-2">
                 <li class="editField">
-                    <input value="Submit" type="submit" id="submitEditBtn" class="btn btn-success">
+                    <input value="submit" type="submit" id="submitEditBtn" class="btn btn-success">
                 </li>
               </div>
             </form>
@@ -70,10 +85,7 @@
           </tr>
         </thead>
         <tbody>
-        <?php if(count($users)>2){
-          array_splice($users,0,2);
-          if(sizeof($users)>0)
-          {
+        <?php if(count($users)>0){
         foreach($users['resultset'] as $key =>$user)
         { ?>
           <tr>
@@ -87,13 +99,13 @@
               <input type="hidden" id="userIdDel" name="userIdDel" value="<?php echo $user['id'] ?>">
                 <i class="fa fa-trash fa-2x"  aria-hidden="true" onclick="deleteRow()"></i>   
               </button>
-              <i class="far fa-edit fa-2x" id="editProductBtn" onclick="displayEdit2(<?php echo $user['id'] ?>)"></i>
+              <i class="far fa-edit fa-2x" id="editProductBtn" name="userId" value="<?php echo $user['id'] ; var_dump($user['id']) ?>" onclick="displayEdit2(<?php echo $user['id'] ?>)"></i>
 
               </form>
               </td>
           </tr>
           
-        <?php } }} ?>
+        <?php } }?>
         </tbody>
       </table>
 

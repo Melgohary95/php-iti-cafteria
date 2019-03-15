@@ -1,53 +1,20 @@
 <?php include('../../views/components/header.php') ?>
-
-<?php include('../../views/components/navBar.php') ?>
-
-
-<!-- start user navbar -->
-
 <div class="container-fluid">
-            <div class="row main-header">
-                <!-- Header Navbar: style can be found in header.less -->
-                <div class="col-md-4 navbar" >
-                    <ul class="nav tab-bar-icons">
-                        <li>
-                            <a href="/phpProject/home.php">
-                                <span class="menu-text">Home</span>
-                            </a>
-                        </li> 
-                        <li class="flat-box waves-effect waves-block">
-                            <a href="/phpProject/myOrders.php">
-                                <span class="menu-text"> My Orders </span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-                
-                <div class="col-md-5">
-                </div>
-                <div class="col-md-3">
-                    <ul class="nav navbar-nav navbar-right user">
-
-                        <li class="dropdown navbar-user">
-                           
-                            <a href="javascript:;" class="dropdown-toggle profile-name" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/14690942_936478356496967_3208200680112630503_n.jpg" alt=""/>
-                                <span class="hidden-xs"> Nourhan </span>
-                                <b class="caret"></b>
-                            </a>
-                            
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
-             
-                </div>
-            </div>
-
-      <!-- end user navbar-->
-
-<div class="container">
-
+    <div class="row main-header">
+        <!-- Header Navbar: style can be found in header.less -->
+        <?php include('../../views/components/userNavBar.php') ?>
+        <?php if (isset($_SESSION['err']) && $_SESSION['err'] != ""): ?>
+            <?php $err = $_SESSION['err']; ?>
+            <?php echo "<div class='alert alert-danger mt-3'> $err </div>" ?>
+            <?php unset($_SESSION['err']) ?>
+        <?php endif; ?>
+            <?php if (isset($_SESSION['success']) && $_SESSION['success'] != ""): ?>
+            <?php $sucess = $_SESSION['success']; ?>
+            <?php echo "<div class='alert alert-success mt-3'> $sucess </div>" ?>
+            <?php unset($_SESSION['success']) ?>
+        <?php endif; ?>
+        
+<div class="container mt-5">
 <h2>My Orders</h2><br>
 
 <form method="post">
@@ -81,37 +48,41 @@
         <td>Amount</td>
         <td>Action</td>
       </tr>
+      <?php if(isset($orders["resultset"]) && is_array($orders["resultset"])) { ?>
       <?php foreach ($orders["resultset"] as $value){?>
+      <?php if($value["status"] == 0 || $value["status"] == 1 || $value["status"] == 2){?>
       <tr>
         <td>
           <!-- first section  -->
             <div class="ac">
               <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
               <label id ="firstRow" class="ac-label" for="ac-1"><?php echo $value["date"]?></label>
-
+              <?php $allOrders = $order->getOrderProducts($value['id']) ?>
+              <?php foreach ($allOrders["resultset"] as $orderValue) { ?>
               <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
                   <div class="ac-sub">
                     <label for="ac-1">
                         <div class="table-responsive">
                           <table>
                             <tr>
+                            <?php $allProducts = $order->getProductInfo($orderValue['product_id']) ?>
+                            <?php foreach ($allProducts["resultset"] as $productValue) { ?> 
                               <td>
                                 <figure>
-                                  <img style="width:50px; height:50px;" src="../../assets/images/user.png" alt="product1">
-                                  <figcaption>tea</figcaption>
-                                  <figcaption>amount</figcaption>
-                                  <figcaption>price</figcaption>
+                                  <img style="width:50px; height:50px;" src="<?php echo $productValue['image'] ?>" alt="product1">
+                                  <figcaption><?php echo $productValue['name']?></figcaption>
+                                  <figcaption><?php echo $orderValue['amount']?></figcaption>
+                                  <figcaption><?php echo $productValue['price']?></figcaption>
                                 </figure>
                               </td>
-                              
-                              <td><img style="width:50px; height:50px;" src="../../assets/images/user.png" alt="product2"></td>
-                              <td><img style="width:50px; height:50px;" src="../../assets/images/user.png" alt="product3"></td>
+                            <?php } ?> 
                             </tr>
                           </table>
                         </div>
                     </label>
                   </div>
               </article>
+              <?php }?>
             </div>
           <!-- first section  -->
         </td>
@@ -120,7 +91,7 @@
            echo "Processing";
         } else if($value["status"] == 1){
           echo "Out for delivery";
-        } else {
+        } else if($value["status"] == 2){
           echo "Done";
         }
         ?>
@@ -130,11 +101,13 @@
         ?>
         </td>
         <td><?php if($value["status"] == 0){ ?>
-            <?php var_dump($value['id']); ?>
-            <a id="myCancel" href="./myOrders.php?mid=$value['id']" onclick="<?php $order->cancelOrders($value['id'])?>">cancel</a>
+            <?php $id=$value['id'] ?>
+            <a id="myCancel" href="./myOrders.php?mid=<?php echo $id ?>" >cancel</a>
         <?php }?>
         </td>
         </tr>
+        <?php }?>
+      <?php }?>
       <?php }?>
     </tbody>
   </table>

@@ -8,7 +8,7 @@
         <h1>All Products</h1>
       </div>
       <div class="col-md-6 addProBtn">
-        <a class="btn btn-danger " href="/phpProject/App/controller/addProduct.php">Add Product</a>
+          <a class="btn btn-danger " href="../../App/controller/addProduct.php">Add Product</a>
       </div>
       <div id="edit">
         <ul id="editForm">
@@ -126,7 +126,7 @@
 
             ?>
           </ul>
-   </div>
+    </div>
   </div>
 
 

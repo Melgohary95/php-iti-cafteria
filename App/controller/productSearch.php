@@ -5,6 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+session_start();
 require_once '../model/Order.php';
 if (isset($_POST)) {
 //    var_dump($_POST);
