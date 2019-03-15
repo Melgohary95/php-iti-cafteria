@@ -4,13 +4,16 @@
 
 <div class="noMarginRow row">
     <div class="col-2 ml-5 mt-2">
+        <div class="adminOrders">
         <h3>Orders</h3>
+    </div>
     </div>
 </div>
 <div class="noMarginRow row mx-auto my-5">
     <div class="col-lg-6 mx-auto">
-    <table class="table table-striped">
-        <thead>
+    <table class="productsTable table">
+        <thead class="thead-dark">
+       
             <tr>
             <th scope="col">OrderDate</th>
             <th scope="col">Name</th>
@@ -20,64 +23,53 @@
             </tr>
         </thead>
         <tbody>
-<<<<<<< HEAD
-        <?php if(count($result)>2){
-          array_splice($result,0,2);
-        foreach($result['resultset'] as $key =>$res)
-        { ?>
-=======
-        <?php 
+        <?php if (count($result['orders']) > 0): ?>
+       
          
-        foreach($result["orders"] as $key =>$res)
-        { ?>
-       <?php //var_dump($res); ?>
->>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
+        <?php  foreach($result["orders"] as $key =>$res){ ?>
+     
             <tr>
-                <th scope="col">  <?php echo $res['date'] ?>  </th>
-                <th scope="col"> <?php echo $res['user_name'] ?> </th>
-                <th scope="col"> <?php echo $res['roomNo'] ?> </th>
-                <th scope="col"> <?php echo $res['ext'] ?> </th>
-                <th scope="col">pickup</th>
+                <td scope="col">  <?php echo $res['date'] ?>       </td>
+                <td scope="col">  <?php echo $res['user_name'] ?>  </td>
+                <td scope="col">  <?php echo $res['roomNo'] ?>     </td>
+                <td scope="col">  <?php echo $res['ext'] ?>        </td>
+                <td scope="col">deliver</th>
             </tr>
-<<<<<<< HEAD
-            <?php } } ?>
-=======
->>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
 
-
-            <tr>
-                <td colspan="5">
-                <div class="scrolling-wrapper">
-                    <div class="card"><h2>Card</h2></div>
-                    <div class="card"><h2>Card</h2></div>
-                    <div class="card"><h2>Card</h2></div>
-                    <div class="card"><h2>Card</h2></div>
-                    <div class="card"><h2>Card</h2></div>
-                    
-                </div>
-                </td>
-            </tr>
         
+
+<td scope="col">
+
+    <?php if (count($result['productOrders'][$res['id']] ) > 0): ?>
+
+    
+    <?php foreach ($result['productOrders'][$res['id']] as $pro): ?>  
+     <span> <?php echo $pro['price']?>  LE</span> 
+    <img width=80 src="<?php echo $pro['pimg'] ?>" alt="pimg">
+                
+    <span><?php echo $pro['Qun']?>
+    <?php endforeach; ?>
+   
+    <?php endif; ?>
+    </td>
+
+</tr>
             <tr>
                 <td colspan="5">
-<<<<<<< HEAD
-                    <p>total price 
-                    <?php if(count($result)>2){
-          array_splice($result,0,2);
-        foreach($result['resultset'] as $key =>$res)
-        { ?>
-                    <?php echo $res['total_price'] ?> </p>
-                </td>
-            </tr>
-            <?php } } ?>
-=======
                     <p>total price </p>
         
                     <?php echo $res['total_price'] ?> 
                 </td>
+           
             </tr>
+            <tr>
+            
+          
+           
             <?php  } ?>
->>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
+            <?php endif; ?>  
+
+          
         </tbody>
     </table>
     </div>

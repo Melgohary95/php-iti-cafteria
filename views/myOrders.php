@@ -18,7 +18,8 @@
       class="form-control" placeholder="Date to" name="endDate">
     </div>
 
-    <div class="col">  
+    <div class="col">
+      
       <button type="submit" onclick="getMyOrders()">Search Orders by date</button>
     </div>
     
@@ -36,28 +37,34 @@
         <td>Amount</td>
         <td>Action</td>
       </tr>
-      <?php foreach ($orders["resultset"] as $value) {?>
-      <?php $total = $total + $value["total_price"];?>
-        <tr>
+      <tr>
         <td>
           <!-- first section  -->
             <div class="ac">
               <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
-              <label id ="firstRow" class="ac-label" for="ac-1"><?php echo $value["date"] ?></label>
+              <label id ="firstRow" class="ac-label" for="ac-1">amal moustafa</label>
 
               <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
                   <div class="ac-sub">
-                  <table style="margin-top: 0px;" class="table table-striped">
-                    <tbody>
-                      <tr>
-                        <td><img src="" alt="product1"></td>
-                        <td><img src="" alt="product2"></td>
-                        <td><img src="" alt="product3"></td>
-                        <td><img src="" alt="product4"></td>
-                      </tr>
-                    </tbody>
-                </table>
-              
+                    <label for="ac-1">
+                        <div class="table-responsive">
+                          <table>
+                            <tr>
+                              <td>
+                                <figure>
+                                  <img style="width:50px; height:50px;" src="../../assets/images/user.png" alt="product1">
+                                  <figcaption>tea</figcaption>
+                                  <figcaption>amount</figcaption>
+                                  <figcaption>price</figcaption>
+                                </figure>
+                              </td>
+                              
+                              <td><img style="width:50px; height:50px;" src="../../assets/images/user.png" alt="product2"></td>
+                              <td><img style="width:50px; height:50px;" src="../../assets/images/user.png" alt="product3"></td>
+                            </tr>
+                          </table>
+                        </div>
+                    </label>
                   </div>
               </article>
             </div>
@@ -89,37 +96,41 @@
         </tr>
       <?php }?>
       <tr>
-        <td>Total:<?php echo $total ?></td>
+        <td>
+          <!-- second section  -->
+            <div class="ac">
+                <input class="ac-input" id="ac-4" name="ac-4" type="checkbox" />
+                <label class="ac-label" for="ac-4">ahmed mostafa</label>
+              
+                <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
+                  <div class="ac-sub">
+                    <label for="ac-4">
+                      <div class="table-responsive">
+                        <table>
+                          <tr>
+                            <td><img style="width:50px; height:50px;" src="../../assets/images/user.png" alt="product1"></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </label>
+                  </div>
+                </article>
+              </div>
+          <!-- second section  -->
+        </td>
+        <td>Out for delivery</td>
+        <td>20 EGP</td>
+        <td></td>
       </tr>
+     
     </tbody>
   </table>
 </div>
 
 
 <!-- start pagination  -->
-<nav aria-label="Page navigation example">
-<ul class="pagination pagination-circle pg-blue">
-  <li class="page-item disabled"><a class="page-link">First</a></li>
-  <li class="page-item disabled">
-    <a class="page-link" aria-label="Previous">
-      <span aria-hidden="true">&laquo;</span>
-      <span class="sr-only">Previous</span>
-    </a>
-  </li>
-  <li class="page-item active"><a class="page-link">1</a></li>
-  <li class="page-item"><a class="page-link">2</a></li>
-  <li class="page-item"><a class="page-link">3</a></li>
-  <li class="page-item"><a class="page-link">4</a></li>
-  <li class="page-item"><a class="page-link">5</a></li>
-  <li class="page-item">
-    <a class="page-link" aria-label="Next">
-      <span aria-hidden="true">&raquo;</span>
-      <span class="sr-only">Next</span>
-    </a>
-  </li>
-  <li class="page-item"><a class="page-link">Last</a></li>
-</ul>
-</nav>
+
+
 <!-- end pagination -->
 
 <?php include('../../views/components/footer.php') ?>

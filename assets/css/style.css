@@ -1065,3 +1065,11 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0 9px;
 } */
 >>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
+/*
+fatma new style*/
+.adminOrders{
+  color:#D00000;
+  padding-top:50px;
+  padding-left: 25px;
+  font-weight:bold;
+}

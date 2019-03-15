@@ -1,5 +1,5 @@
-<?php include('./components/header.php') ?>
-<?php include('./components/navBar.php') ?>
+<?php include('../../views/components/header.php') ?>
+<?php include('../../views/components/navBar.php') ?>
 
 <div class="container">
 
@@ -8,10 +8,12 @@
 <form>
 <div class="row">
 <div class="col">
-  <input type="date" class="form-control" placeholder="First name">
+  <input type="text" onfocus="(this.type='date')" 
+      class="form-control" placeholder="Date from" name="startDate" >
 </div>
 <div class="col">
-  <input type="date" class="form-control" placeholder="Last name">
+<input type="text" onfocus="(this.type='date')" 
+      class="form-control" placeholder="Date to" name="endDate">
 </div>
 
 </div>
@@ -20,9 +22,9 @@
       <div style="padding-left: 19px" class="col-auto my-1">
         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
           <option selected>Choose...</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option value="1">user1</option>
+          <option value="2">user2</option>
+          <option value="3">user3</option>
         </select>
       </div>
 </div>
@@ -31,84 +33,71 @@
 </form>
 
 
-<div class="ac">
-<input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
-<label class="ac-label" for="ac-1">Amal Moustafa</label>
+<!-- ===================================table=========================================== -->
 
-<article class="ac-text">
-  
-  <div class="ac-sub">
-    <input class="ac-input" id="ac-2" name="ac-2" type="checkbox" />
-    <label class="ac-label" for="ac-2">order date 1 </label>
+<div class="table-responsive">
+  <table style="margin-top:0px" class="table">
+    <tbody>
+      <tr>
+        <td>Names</td>
+        <td>Total Amount</td>
+      </tr>
+      
+      <tr>
+        <td>
+          <div class="ac">
+          <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
+          <label class="ac-label" for="ac-1">Amal Moustafa</label>
 
-    <article class="ac-sub-text">
-    <table class="table table-striped">
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </table>
-  </article>
-  </div>
-  
-<!--/ac-text--> 
-</div> <!--/ac--> 
+          <article class="ac-text">
+            
+            <div class="ac-sub">
+              <input class="ac-input" id="ac-2" name="ac-2" type="checkbox" />
 
+              <label class="ac-label" for="ac-2">
+                <div class="table-responsive">
+                
+                    <table style="width: 100%;">
+                      
+                      <tr>
+                        <td>19-04-1994</td>
+                        <td>55 EGP</td>
+                      </tr>
+                    </table>
+                  </div>
+              </label>
 
-<!-- second section  -->
-<div class="ac">
-<input class="ac-input" id="ac-4" name="ac-4" type="checkbox" />
-<label class="ac-label" for="ac-4">Nourhame sherif</label>
-
-<article class="ac-text">
-
-<div class="ac-sub">
-  <input class="ac-input" id="ac-5" name="ac-5" type="checkbox" />
-  <label class="ac-label" for="ac-5">order date 2</label>
-  <article class="ac-sub-text">
-    <p>orders 3</p>
-  </article>
+              <article class="ac-sub-text">
+                <table style="margin-top: 0px;" class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <figure>
+                          <img style="width:50px; height:50px;" src="../../assets/images/user.png" alt="product1">
+                          <figcaption>tea</figcaption>
+                            <figcaption>amount</figcaption>
+                            <figcaption>price</figcaption>
+                          </figure>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+            </div>
+            
+          <!--/ac-text--> 
+          </div> <!--/ac--> 
+        </td>
+        <td>20</td>
+      </tr>
+     
+    </tbody>
+  </table>
 </div>
+<!-- ============================================================================== -->
 
-</article>
-<!--/ac-text-->
 
-<!-- third section  -->
-<div class="ac">
-    <input class="ac-input" id="ac-6" name="ac-6" type="checkbox" />
-    <label class="ac-label" for="ac-6">Fatema mohamed</label>
-  
-    <article class="ac-text">
-  
-      <div class="ac-sub">
-        <input class="ac-input" id="ac-7" name="ac-7" type="checkbox" />
-        <label class="ac-label" for="ac-7">order date 2</label>
-        <article class="ac-sub-text">
-          <p>orders 3</p>
-        </article>
-      </div>
-  
-    </article>
-    <!--/ac-text-->
 
-</div>
-<!--/ac-->
 
 <!-- start pagination  -->
 <nav aria-label="Page navigation example">
@@ -136,4 +125,4 @@
 </nav>
 <!-- end pagination -->
 
-<?php include('./components/footer.php') ?>
+<?php include('../../views/components/footer.php') ?>

@@ -21,7 +21,7 @@
         <a class="nav-link" href="/phpProject/views/adminChecks.php">Checks</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/phpProject/views/adminOrders.php">Orders</a>
+        <a class="nav-link" href="/php-iti-cafteria/App/controller/orders.php">Orders</a>
       </li>
       
 
