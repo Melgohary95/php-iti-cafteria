@@ -1052,9 +1052,29 @@ input[type=number]::-webkit-outer-spin-button {
 
 /*
 fatma new style*/
+
 .adminOrders{
   color:#D00000;
   padding-top:50px;
   padding-left: 25px;
   font-weight:bold;
+}
+.total_price{
+  color:#D00000;
+  float: right;
+ 
+  
+}
+.total_price span{
+  color:#000;
+  border:#000;
+}
+.le{
+  color:#d00000
+}
+.border{
+  border-right-color: #024959;
+  border-left-color: #024959; 
+  border-bottom-color: #024959;
+  
 }

@@ -10,8 +10,8 @@
     </div>
 </div>
 <div class="noMarginRow row mx-auto my-5">
-    <div class="col-lg-6 mx-auto">
-    <table class="productsTable table">
+    <div class="col-lg-9 mx-auto border">
+    <table class="productsTable table col-md-12">
         <thead class="thead-dark">
        
             <tr>
@@ -37,28 +37,31 @@
             </tr>
 
         
-
-<td scope="col">
+<td colspan="5">
 
     <?php if (count($result['productOrders'][$res['id']] ) > 0): ?>
 
     
     <?php foreach ($result['productOrders'][$res['id']] as $pro): ?>  
-     <span> <?php echo $pro['price']?>  LE</span> 
+  
+   <span class="le"> <?php echo $pro['price']?>  LE</span> 
     <img width=80 src="<?php echo $pro['pimg'] ?>" alt="pimg">
                 
-    <span><?php echo $pro['Qun']?>
+    <span ><?php echo $pro['Qun']?> Q
+   
     <?php endforeach; ?>
    
     <?php endif; ?>
     </td>
-
+  
 </tr>
             <tr>
                 <td colspan="5">
+                    <div class="total_price" >
                     <p>total price </p>
         
-                    <?php echo $res['total_price'] ?> 
+                   <span> <?php echo $res['total_price'] ?></span>
+        </div> 
                 </td>
            
             </tr>
