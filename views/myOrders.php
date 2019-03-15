@@ -47,7 +47,17 @@
 
               <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
                   <div class="ac-sub">
-                    <label for="ac-1"><?php echo $value["date"]?></label>
+                  <table style="margin-top: 0px;" class="table table-striped">
+                    <tbody>
+                      <tr>
+                        <td><img src="" alt="product1"></td>
+                        <td><img src="" alt="product2"></td>
+                        <td><img src="" alt="product3"></td>
+                        <td><img src="" alt="product4"></td>
+                      </tr>
+                    </tbody>
+                </table>
+              
                   </div>
               </article>
             </div>
@@ -69,7 +79,10 @@
         </td>
         <td><?php 
         if($value["status"] == 0){
-          echo "<a href=''>cancel</a>";
+          $newOrder = new Order(); 
+          echo '<button type=submit onclick = '<?php "$newOrder->cancelOrders($value[id])"?>'>';
+          echo '<a href="./myOrders.php">cancel</a>';
+          echo '</button>';
         }
         ?>
         </td>

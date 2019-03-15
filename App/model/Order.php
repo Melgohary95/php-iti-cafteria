@@ -1,4 +1,5 @@
 <?php
+session_start();
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,6 +22,10 @@ class Order {
         $this->db = new Database();
     }
     
+    public function cancelOrders($mid){
+        $result = $this->db->delete("orders","id = $mid;");
+    }
+
     public function getOrders($fDate,$lDate){
             $myOrders;
             $userId = $_SESSION["uid"];
