@@ -8,10 +8,11 @@ require '../model/Order.php';
 $order = new Order();
 //$orders = $order->orderChecks();
 
-$checks = $order->orderChecks($_REQUEST["startDate"], $_REQUEST["endDate"]);
+$checks = $order->orderChecks(3,$_REQUEST["startDate"], $_REQUEST["endDate"]);
 $users = $order->getUsers();
-$orders = $order->getOrders($_REQUEST["startDate"], $_REQUEST["endDate"]);
+// $orders = $order->getOrders($_REQUEST["startDate"], $_REQUEST["endDate"]);
 // var_dump($checks);
+$counter = 0;
 function setEnv($id,$name){
     $_ENV['id'] = $id;
     $_ENV['name'] = $name;

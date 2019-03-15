@@ -86,7 +86,8 @@
         ?>
         </td>
         <td><?php if($value["status"] == 0){ ?>
-            <a href="./myOrders.php" onclick='<?php $order->cancelOrders($value["id"])?>'>cancel</a>
+            <?php var_dump($value['id']); ?>
+            <a id="myCancel" href="./myOrders.php?mid=$value['id']" onclick="<?php $order->cancelOrders($value['id'])?>">cancel</a>
         <?php }?>
         </td>
         </tr>

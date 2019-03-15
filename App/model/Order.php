@@ -23,7 +23,19 @@ class Order {
     }
     
     public function cancelOrders($mid){
-        $result = $this->db->delete("orders","id = $mid;");
+        $nid = (int)$mid;
+        var_dump($mid);
+        $result = $this->db->delete("orders","id = $nid;");
+    }
+
+    public function getOrderProducts($id){
+        $orderProducts = $this->db->select('order_products','*',"id = $id");
+        return $orderProducts;
+    }
+
+    public function getProductInfo($nid){
+        $productInfo = $this->db->select('products','*',"id = $nid");
+        return $productInfo;
     }
 
     public function getOrders($fDate,$lDate){
@@ -46,19 +58,20 @@ class Order {
         $myUsers = $this->db->select('users','*');
         return $myUsers;
     }
+
     // public function getOrders($fDate, $lDate){
     //     $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
     //     return $myOrders;
     // }
 //-------------------- Aml ---------------------------
-public function orderChecks($fDate,$lDate){
-    if(!empty($fDate) && !empty($lDate)){
-        $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
-    }
-    else{
-        $myOrders = $this->db->select('orders','*');
-    }
-    return $myOrders;
+public function orderChecks($uid,$fDate,$lDate){
+    $myOrders;
+if(!empty($fDate) && !empty($lDate)){
+    $myOrders = $this->db->select('orders','*',"user_id = $uid AND date BETWEEN '$fDate' AND '$lDate';");
+} else {
+    $myOrders = $this->db->select('orders', '*',"user_id = $uid");
+}
+return $myOrders;
 }
 //-------------------- Aml ---------------------------
 //----------------fatma-----------
