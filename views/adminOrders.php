@@ -5,7 +5,7 @@
 <div class="noMarginRow row">
     <div class="col-2 ml-5 mt-2">
         <div class="adminOrders">
-        <h3>Orders</h3>
+        <h1>Orders</h1>
     </div>
     </div>
 </div>
