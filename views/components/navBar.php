@@ -21,7 +21,7 @@
         <a class="nav-link" href="/phpProject/views/adminChecks.php">Checks</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/phpProject/views/adminOrders.php">Orders</a>
+        <a class="nav-link" href="/php-iti-cafteria/App/controller/orders.php">Orders</a>
       </li>
       
 
@@ -29,10 +29,7 @@
     <div class="my-2 my-lg-0">
         <a href="#"><img src="../../assets/images/user.png" width="35" class="mr-2"/></a>
         <a href="#">Admin</a>
-<<<<<<< HEAD
-=======
         <a href="#" class="ml-3">Log out</a>
->>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
     </div>
   </div>
 </nav>

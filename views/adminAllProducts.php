@@ -73,18 +73,10 @@
           </tr>
         </thead>
         <tbody>
-<<<<<<< HEAD
-        <?php if(count($products)>2){
-          array_splice($products,0,2);
-          if(sizeof($products)>0)
-          {
-        foreach($products['resultset'] as $key =>$product)
-=======
         <?php 
           if(sizeof($pageProducts)>0)
           {
         foreach($pageProducts as $key =>$product)
->>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
         { ?>
           <tr>
             <td><?php echo $product['name'] ?></td>
@@ -104,13 +96,6 @@
             </td>
           </tr>
           
-<<<<<<< HEAD
-        <?php } }} ?>
-        </tbody>
-      </table>
-
-
-=======
         <?php  }} ?>
         </tbody>
       </table>
@@ -141,7 +126,6 @@
 
             ?>
           </ul>
->>>>>>> 3ecb882ebf7c1881827a54227f3324c831ba65c9
     </div>
   </div>
 
