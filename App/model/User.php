@@ -64,6 +64,7 @@ class User {
         }
 
         public function login($email, $password) {
+            
             $userpassword = md5($password);
             $user = $this->db->selectById("users", "*", "email='$email' and password='$userpassword'");
             var_dump($user);
