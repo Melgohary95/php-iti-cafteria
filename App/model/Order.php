@@ -22,9 +22,21 @@ class Order {
     public function __construct() {
         $this->db = new Database();
     }
+    
+    public function cancelOrders($mid){
+        $cancel['status']=3;
+        $result = $this->db->update("orders",$cancel,"id = $mid;");
+        //$result = $this->db->delete("orders","id = $mid;");
+    }
 
-    public function cancelOrders($mid) {
-        $result = $this->db->delete("orders", "id = $mid;");
+    public function getOrderProducts($id){
+        $orderProducts = $this->db->select('order_products','*',"id = $id");
+        return $orderProducts;
+    }
+
+    public function getProductInfo($nid){
+        $productInfo = $this->db->select('products','*',"id = $nid");
+        return $productInfo;
     }
 
     public function getOrders($fDate, $lDate) {
@@ -48,21 +60,20 @@ class Order {
         return $myUsers;
     }
 
-// public function getOrders($fDate, $lDate){
-//     $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
-//     return $myOrders;
-// }
+    // public function getOrders($fDate, $lDate){
+    //     $myOrders = $this->db->select('orders','*',"date between $fDate AND $lDate;");
+    //     return $myOrders;
+    // }
 //-------------------- Aml ---------------------------
-    public function orderChecks($fDate, $lDate) {
-        echo "test checks";
-        if (!empty($fDate) && !empty($lDate)) {
-            $myOrders = $this->db->select('orders', '*', "date between $fDate AND $lDate;");
-        } else {
-            $myOrders = $this->db->select('orders', '*');
-        }
-        return $myOrders;
-    }
-
+public function orderChecks($uid,$fDate,$lDate){
+    $myOrders;
+if(!empty($fDate) && !empty($lDate)){
+    $myOrders = $this->db->select('orders','*',"user_id = $uid AND date BETWEEN '$fDate' AND '$lDate';");
+} else {
+    $myOrders = $this->db->select('orders', '*',"user_id = $uid");
+}
+return $myOrders;
+}
 //-------------------- Aml ---------------------------
 //----------------fatma-----------
     public function getAdminorders() {
