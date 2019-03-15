@@ -37,12 +37,13 @@
         <td>Amount</td>
         <td>Action</td>
       </tr>
+      <?php foreach ($orders["resultset"] as $value){?>
       <tr>
         <td>
           <!-- first section  -->
             <div class="ac">
               <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
-              <label id ="firstRow" class="ac-label" for="ac-1">amal moustafa</label>
+              <label id ="firstRow" class="ac-label" for="ac-1"><?php echo $value["date"]?></label>
 
               <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
                   <div class="ac-sub">
@@ -84,45 +85,12 @@
         echo $value["total_price"];
         ?>
         </td>
-        <td><?php 
-        if($value["status"] == 0){
-          $newOrder = new Order(); 
-          echo '<button type=submit onclick = '<?php "$newOrder->cancelOrders($value[id])"?>'>';
-          echo '<a href="./myOrders.php">cancel</a>';
-          echo '</button>';
-        }
-        ?>
+        <td><?php if($value["status"] == 0){ ?>
+            <a href="./myOrders.php" onclick='<?php $order->cancelOrders($value["id"])?>'>cancel</a>
+        <?php }?>
         </td>
         </tr>
       <?php }?>
-      <tr>
-        <td>
-          <!-- second section  -->
-            <div class="ac">
-                <input class="ac-input" id="ac-4" name="ac-4" type="checkbox" />
-                <label class="ac-label" for="ac-4">ahmed mostafa</label>
-              
-                <article class="ac-text" style="position: absolute;top: 80vh;left: 50vw;">
-                  <div class="ac-sub">
-                    <label for="ac-4">
-                      <div class="table-responsive">
-                        <table>
-                          <tr>
-                            <td><img style="width:50px; height:50px;" src="../../assets/images/user.png" alt="product1"></td>
-                          </tr>
-                        </table>
-                      </div>
-                    </label>
-                  </div>
-                </article>
-              </div>
-          <!-- second section  -->
-        </td>
-        <td>Out for delivery</td>
-        <td>20 EGP</td>
-        <td></td>
-      </tr>
-     
     </tbody>
   </table>
 </div>

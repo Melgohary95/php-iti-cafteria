@@ -123,3 +123,25 @@ const getMyOrders = function(){
     }
 });
 };
+
+const checks = function(id,name){
+  $(".inlineFormCustomSelect").change(function () {
+
+    // var value = $(this).val();
+    // console.log(value);
+    // var product = {selectValue: value};
+//    alert(id);
+    // call ajax
+    $.ajax({
+        url: "./checks.php?id= " + id + "&name=" + name,
+        type: "GET",
+        // sent data object to server
+        data: product,
+
+        success: function (data) {
+            console.log(data);
+        }
+    });
+
+});
+}
